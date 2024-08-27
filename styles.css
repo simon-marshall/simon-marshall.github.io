@@ -17,7 +17,7 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: flex-end; /* Aligns content to the bottom */
-    height: 300px; /* Set a fixed height or adjust as needed */
+    height: 80px; /* Set a fixed height or adjust as needed */
 }
 
 h1 {
