@@ -37,3 +37,17 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+.project-links {
+    margin-bottom: 20px;
+}
+
+.project-links h3 a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.2em;
+}
+
+.project-links p {
+    margin: 5px 0;
+}
