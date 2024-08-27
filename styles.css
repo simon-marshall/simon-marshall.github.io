@@ -8,7 +8,7 @@ body {
 }
 
 header {
-    background: url('photos/DSCF3391.JPG') no-repeat center center/cover;
+    background: url('photos/DSCF3391.JPG') no-repeat center top;
     background-position: center 20%;
     color: #fff;
     padding: 60px 20px;
