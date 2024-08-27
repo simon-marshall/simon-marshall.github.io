@@ -8,10 +8,11 @@ body {
 }
 
 header {
-    background-color: #333;
+    background: url('photos/DSCF3391.JPG') no-repeat center center/cover;
     color: #fff;
-    padding: 20px;
+    padding: 60px 20px;
     text-align: center;
+    background-size: cover;
 }
 
 h1 {
