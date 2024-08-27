@@ -10,10 +10,14 @@ body {
 header {
     background: url('photos/DSCF3391.JPG') no-repeat center top;
     background-position: center 60%;
+    background-size: cover;
     color: #fff;
-    padding: 20px;
+    padding: 20px; 
     text-align: center;
-    /*background-size: cover;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Aligns content to the bottom */
+    height: 300px; /* Set a fixed height or adjust as needed */
 }
 
 h1 {
