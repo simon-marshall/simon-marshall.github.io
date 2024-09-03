@@ -15,8 +15,9 @@ header {
     text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end; /* Aligns content to the bottom */
-    height: 400px; 
+    justify-content: flex-end;
+    height: 200px;
+    position: relative; /* Ensure header content does not overlap */
 }
 
 h1 {
@@ -36,7 +37,7 @@ footer {
     color: #fff;
     text-align: center;
     padding: 10px 0;
-    position: fixed;
+    position: relative;
     bottom: 0;
     width: 100%;
 }
