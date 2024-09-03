@@ -91,3 +91,61 @@ footer {
     background-color: #1e7e34; /* Darker green on hover */
 }
 
+.icon-bar {
+    background-color: #333; /* Background color for the bar */
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    top: 0; /* Fixed at the top of the page */
+    width: 100%;
+    z-index: 1000; /* Ensure it sits on top of other content */
+}
+
+.icon-bar a {
+    margin: 0 15px;
+    display: inline-block;
+}
+
+.icon-bar img {
+    width: 32px; /* Adjust size of icons */
+    height: auto;
+    vertical-align: middle;
+    transition: opacity 0.3s ease;
+}
+
+.icon-bar img:hover {
+    opacity: 0.7; /* Slight fade effect on hover */
+}
+
+section {
+    margin-bottom: 20px;
+    text-align: center; /* Centers the paragraphs */
+}
+
+/* Icon Bar Styles */
+.icon-bar {
+    background-color: #333; /* Background color for the bar */
+    padding: 10px;
+    text-align: center;
+    position: absolute; /* Positioned relative to the main section */
+    bottom: 0; /* Stick to the bottom of the main section */
+    left: 0;
+    width: 100%;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Optional shadow for better visibility */
+}
+
+.icon-bar a {
+    margin: 0 15px;
+    display: inline-block;
+}
+
+.icon-bar img {
+    width: 32px; /* Adjust size of icons */
+    height: auto;
+    vertical-align: middle;
+    transition: opacity 0.3s ease;
+}
+
+.icon-bar img:hover {
+    opacity: 0.7; /* Slight fade effect on hover */
+}
