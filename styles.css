@@ -7,7 +7,7 @@ body {
     color: #333;
 }
 header {
-    background: url('photos/DSCF3391.JPG') no-repeat center top;
+    background: url('photos/DSCF3391.JPG') no-repeat top;
     background-position: center 60%;
     background-size: cover;
     color: #fff;
