@@ -6,7 +6,6 @@ body {
     background-color: #f4f4f4;
     color: #333;
 }
-
 header {
     background: url('photos/DSCF3391.JPG') no-repeat center top;
     background-position: center 60%;
@@ -17,7 +16,7 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: flex-end; /* Aligns content to the bottom */
-    height: 60px; /* Set a fixed height or adjust as needed */
+    height: 200px; 
 }
 
 h1 {
