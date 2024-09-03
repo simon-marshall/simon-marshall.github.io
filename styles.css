@@ -16,7 +16,7 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: flex-end; /* Aligns content to the bottom */
-    height: 600px; 
+    height: 400px; 
 }
 
 h1 {
