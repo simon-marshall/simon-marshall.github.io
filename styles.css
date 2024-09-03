@@ -54,3 +54,40 @@ footer {
 .project-links p {
     margin: 5px 0;
 }
+
+/* Button Container */
+.button-container {
+    text-align: center;
+    margin: 20px 0; /* Adjust spacing as needed */
+}
+
+/* Common Button Styles */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 1em;
+    border-radius: 25px; /* Rounded corners */
+    margin: 0 10px; /* Spacing between buttons */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Blue Button */
+.btn.blue {
+    background-color: #007bff; /* Blue color */
+}
+
+.btn.blue:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Green Button */
+.btn.green {
+    background-color: #28a745; /* Green color */
+}
+
+.btn.green:hover {
+    background-color: #1e7e34; /* Darker green on hover */
+}
+
