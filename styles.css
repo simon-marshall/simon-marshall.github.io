@@ -7,15 +7,16 @@ body {
     color: #333;
 }
 header {
-    background: url('photos/DSCF3391.JPG') no-repeat top;
+    background: url('photos/header2.jpg') no-repeat top;
     background-size: cover;
+    background-attachment: fixed;
     color: #fff;
     padding: 20px; 
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: flex-end; /* Aligns content to the bottom */
-    height: 200px; 
+    height: 600px; 
 }
 
 h1 {
