@@ -1,2 +1,2 @@
 # simon-marshall.github.io
-Attempt at a webpage
+This project is a personal webpage. It's still under development so not everything is here.
