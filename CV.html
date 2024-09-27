@@ -4,110 +4,63 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CV - Simon Marshall</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      margin: 0;
-      padding: 0;
-      color: #333;
-      background-color: #f9f9f9;
-    }
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
-      background: #fff;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-    h1, h2, h3 {
-      color: #444;
-    }
-    h1 {
-      text-align: center;
-      font-size: 36px;
-    }
-    hr {
-      border: 0;
-      height: 1px;
-      background: #ddd;
-      margin: 20px 0;
-    }
-    .section {
-      margin-bottom: 30px;
-    }
-    .section h2 {
-      border-left: 4px solid #1abc9c;
-      padding-left: 10px;
-      font-size: 24px;
-    }
-    .item {
-      margin-bottom: 15px;
-    }
-    .item h3 {
-      font-size: 20px;
-      margin-bottom: 5px;
-    }
-    .item .details {
-      color: #777;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <header>
+        <h1>Simon C. Marshall</h1>
+  </header>
+  
   <div class="container">
-    <h1>Simon Marshall (he/him)</h1>
     <p>PhD in quantum computing, research experience in AI safety</p>
     <hr>
-
-    <!-- Education Section -->
-    <div class="section" id="education">
-      <h2>Education</h2>
-      <div class="item">
-        <h3>PhD in Quantum Computing</h3>
-        <p class="details">[Universiteit Leiden], [2020-2024]</p>
-        <p>Mainly focused on topics in complexity theory, circuit cutting and quantum machine.</p>
-      </div>
-      <div class="item">
-        <h3>Master's in Math and Physics</h3>
-        <p class="details">[University of Warwick], [2016-2020]</p>
-        <p>Thesis in computational fluid dynamics, graded 'high/exceptional first', 1st class in every year.</p>
-      </div>
+    
     <!-- Experience Section -->
     <div class="section" id="experience">
       <h2>Highlighted Research Experience</h2>
       <div class="item">
         <h3>Understanding polysemanticity in neural networks through coding
 theory</h3>
-        <p class="details">[Collaboration with Jan Kirchner (OpenAI)] | [2023]</p>
-        <p>[We applied information theory and neuroscience techniques to analyse how large language models encode 
-          information and protect it from noise. Providing insight into the interpretability of models.]</p>
+        <p class="details">Collaboration with Jan Kirchner (OpenAI) | 2023</p>
+        <p>We applied information theory and neuroscience techniques to analyse how large language models encode 
+          information and protect it from noise. Providing insight into the interpretability of models.</p>
       </div>
       <div class="item">
         <h3>ARC EVALS</h3>
-        <p class="details">[Alignment Research Center/METR with Beth Barnes under the MATS program] | [2022]</p>
-        <p>[We developed and ran evaluations of large language models. This project helped set the groundwork for the current
-          interest in model evaluations.]</p>
+        <p class="details">Alignment Research Center/METR with Beth Barnes under the MATS program | 2022</p>
+        <p>We developed and ran evaluations of large language models. This project helped set the groundwork for the current
+          interest in model evaluations.</p>
       </div>
       <div class="item">
         <h3>Evidence for the strength of quantum computing</h3>
-        <p class="details">[Colaboration with Vedran Dunjko and Scott Aaronson] | [2022]</p>
-        <p>[In this paper we provide the strongest complexity theory evidence so far that quantum computers can compute functions
+        <p class="details">Colaboration with Vedran Dunjko and Scott Aaronson | 2022</p>
+        <p>In this paper we provide the strongest complexity theory evidence so far that quantum computers can compute functions
           that classical computers cannot. We also provide the strongest evidence that a number of quantum supremacy experiments
-          are classically hard. The paper will be released in mid-November.]</p>
+          are classically hard. The paper will be released in mid-November.</p>
       </div>
     </div>
 
+    <!-- Education Section -->
+    <div class="section" id="education">
+      <h2>Education</h2>
+      <div class="item">
+        <h3>PhD in Quantum Computing</h3>
+        <p class="details">Universiteit Leiden, 2020-2024</p>
+        <p>Mainly focused on topics in complexity theory, circuit cutting and quantum machine learning.</p>
+      </div>
+      <div class="item">
+        <h3>Master's in Math and Physics</h3>
+        <p class="details">University of Warwick, 2016-2020</p>
+        <p>Thesis in computational fluid dynamics, graded 'high/exceptional first', 1st class in every year.</p>
+      </div>
+    
+
     <!-- Skills Section -->
-    <div class="section" id="skills">
-      <h2>Skills</h2>
-      <ul>
-        <li>Machine Learning</li>
-        <li>Deep Learning</li>
-        <li>Python, TensorFlow, PyTorch</li>
-        <li>Data Science & Analysis</li>
-        <li>Natural Language Processing</li>
-        <li>Research Methodologies</li>
-      </ul>
+    <div class="section" id="Languages">
+      <h2>Languages</h2> 
+      <b>Programming</b> Almost all my PhD code has been in python, normally with TensorFlow but less frequently with PyTorch.
+      I used a C++-derived language (Basilisk) for my Masters research and C for high-performance computing.
+      <b>Human</b> English - native, Dutch - A2.
     </div>
 
     <!-- Publications Section -->
@@ -119,7 +72,7 @@ theory</h3>
     <!-- Contact Section -->
     <div class="section" id="contact">
       <h2>Contact</h2>
-      <p>Academic Email: <a href="mailto:s.c.marshall@liacs.leidenuniv.nl">s.c.marshall@liacs.leidenuniv.nl</a>. Generic Email:<a href="mailto:s.c.marshall98@gmail.com">s.c.marshall98@gmai.com</a> </p>
+      <p>Academic Email: <a href="mailto:s.c.marshall@liacs.leidenuniv.nl">s.c.marshall@liacs.leidenuniv.nl</a>. Generic Email:<a href="mailto:s.c.marshall98@gmail.com">s.c.marshall98@gmail.com</a> </p>
       <p>GitHub: <a href="https://github.com/simon-marshall">https://github.com/simon-marshall</a></p>
     </div>
   </div>
