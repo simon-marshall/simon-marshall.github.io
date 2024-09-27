@@ -1,0 +1,183 @@
+body {
+    font-family: 'Helvetica', Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #fab52a6c;
+    color: #313a2c;
+}
+
+/* Container centered on large screens */
+.container {
+    max-width: 900px; /* Set a maximum width for content */
+    margin: 0 auto;   /* Centers the content horizontally */
+    padding: 20px;    /* Optional padding for content */
+    background: #f0ebde;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adds a slight shadow for depth */
+    border-radius: 15px;
+  }
+  
+  /* For smaller screens, keep the content full width */
+  @media (max-width: 900px) {
+    .container {
+      width: 100%;
+      padding: 10px;  /* Reduce padding for smaller devices */
+      border-radius: 10px;
+    }
+  }
+
+
+header {
+    background: url('photos/header2.jpg') no-repeat top;
+    background-size: cover;
+    background-attachment: fixed;
+    color: #fff;
+    padding: 20px; 
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 400px;
+    position: relative; /* Ensure header content does not overlap */
+}
+
+h1 {
+    margin: 0;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.project-links {
+    margin-bottom: 20px;
+}
+
+.project-links h3 a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.2em;
+}
+
+.project-links p {
+    margin: 5px 0;
+}
+
+/* Button Container */
+.button-container {
+    text-align: center;
+    margin: 20px 0; /* Adjust spacing as needed */
+}
+
+/* Common Button Styles */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 1em;
+    border-radius: 25px; /* Rounded corners */
+    margin: 0 10px; /* Spacing between buttons */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Blue Button */
+.btn.blue {
+    background-color: #1A535C; /* Blue color */
+}
+
+.btn.blue:hover {
+    background-color: #000000; /* Darker blue on hover */
+}
+
+/* Green Button */
+.btn.green {
+    background-color: #885004; /* Green color */
+}
+
+.btn.green:hover {
+    background-color: #000000; /* Darker green on hover */
+}
+
+/* Red Button */
+.btn.red {
+    background-color: #157F1F; /* Green color */
+}
+
+.btn.red:hover {
+    background-color: #000000; /* Darker green on hover */
+}
+
+.icon-bar {
+    background-color: #333; /* Background color for the bar */
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    top: 0; /* Fixed at the top of the page */
+    width: 100%;
+    z-index: 1000; /* Ensure it sits on top of other content */
+}
+
+.icon-bar a {
+    margin: 0 15px;
+    display: inline-block;
+}
+
+.icon-bar img {
+    width: 32px; /* Adjust size of icons */
+    height: auto;
+    vertical-align: middle;
+    transition: opacity 0.3s ease;
+}
+
+.icon-bar img:hover {
+    opacity: 0.7; /* Slight fade effect on hover */
+}
+
+section {
+    margin-bottom: 20px;
+    text-align: center; /* Centers the paragraphs */
+}
+
+/* Icon Bar Styles */
+.icon-bar {
+    background-color: #333; /* Background color for the bar */
+    padding: 10px;
+    text-align: center;
+    position: absolute; /* Positioned relative to the main section */
+    bottom: 0; /* Stick to the bottom of the main section */
+    left: 0;
+    width: 100%;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Optional shadow for better visibility */
+}
+
+.icon-bar a {
+    margin: 0 15px;
+    display: inline-block;
+}
+
+.icon-bar img {
+    width: 32px; /* Adjust size of icons */
+    height: auto;
+    vertical-align: middle;
+    transition: opacity 0.3s ease;
+}
+
+.icon-bar img:hover {
+    opacity: 0.7; /* Slight fade effect on hover */
+}
+

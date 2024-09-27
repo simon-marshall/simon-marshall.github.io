@@ -3,9 +3,30 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: #fab52a6c;
+    color: #313a2c;
 }
+
+/* Container centered on large screens */
+.container {
+    max-width: 900px; /* Set a maximum width for content */
+    margin: 0 auto;   /* Centers the content horizontally */
+    padding: 20px;    /* Optional padding for content */
+    background: #f0ebde;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adds a slight shadow for depth */
+    border-radius: 15px;
+  }
+  
+  /* For smaller screens, keep the content full width */
+  @media (max-width: 900px) {
+    .container {
+      width: 100%;
+      padding: 10px;  /* Reduce padding for smaller devices */
+      border-radius: 10px;
+    }
+  }
+
+
 header {
     background: url('photos/header2.jpg') no-repeat top;
     background-size: cover;
@@ -76,20 +97,29 @@ footer {
 
 /* Blue Button */
 .btn.blue {
-    background-color: #007bff; /* Blue color */
+    background-color: #1A535C; /* Blue color */
 }
 
 .btn.blue:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+    background-color: #000000; /* Darker blue on hover */
 }
 
 /* Green Button */
 .btn.green {
-    background-color: #28a745; /* Green color */
+    background-color: #885004; /* Green color */
 }
 
 .btn.green:hover {
-    background-color: #1e7e34; /* Darker green on hover */
+    background-color: #000000; /* Darker green on hover */
+}
+
+/* Red Button */
+.btn.red {
+    background-color: #157F1F; /* Green color */
+}
+
+.btn.red:hover {
+    background-color: #000000; /* Darker green on hover */
 }
 
 .icon-bar {
@@ -150,3 +180,4 @@ section {
 .icon-bar img:hover {
     opacity: 0.7; /* Slight fade effect on hover */
 }
+
