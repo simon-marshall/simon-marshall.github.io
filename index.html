@@ -273,9 +273,9 @@
 
 <header class="hero">
   <div class="hero-inner wrap">
-    <p class="eyebrow">Google DeepMind · Amplified Oversight · <a id="boy-mode" href="#">just a boy mode</a></p>
+    <p class="eyebrow">Google DeepMind · Amplified Oversight</p>
     <h1>Simon C. Marshall</h1>
-    <p class="standfirst">I work on scalable oversight — mostly AI safety via debate, from proofs about what protocols can guarantee to experiments on frontier models.<span id="boy-line" style="display:none"><br>I'm also just a boy, standing in front of an AI, asking it not to kill him.</span></p>
+    <p class="standfirst">I work on scalable oversight — mostly AI safety via debate, from proofs about what protocols can guarantee to experiments on frontier models.</p>
   </div>
 </header>
 
@@ -978,14 +978,6 @@ dry and rare. British spelling.</pre>
     });
   });
 })();
-</script>
-<script>
-  document.getElementById('boy-mode').addEventListener('click', function(e) {
-    e.preventDefault();
-    var h = document.querySelector('header.hero');
-    var alt = "url('photos/boymode.jpg')";
-    h.style.backgroundImage = h.style.backgroundImage === alt ? '' : alt;
-  });
 </script>
 </body>
 </html>
