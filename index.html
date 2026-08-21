@@ -119,7 +119,7 @@
   details p{margin:12px 0 0;color:var(--dust);font-size:.96rem}
 
   /* paired disclosure boxes */
-  .pair{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
+  .pair{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:14px;align-items:start}
   .box{
     border:1px solid var(--seam);border-radius:3px;
     background:var(--ledge);padding:15px 18px;
@@ -238,6 +238,18 @@
   .cost b{color:var(--sand);font-weight:500}
   .c,.d{transition:fill .15s ease}
   @media (max-width:560px){ .pair{grid-template-columns:1fr} }
+  .cvr{display:grid;grid-template-columns:96px 1fr;gap:4px 14px;margin:0 0 14px}
+  .cvr dt{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.06em;
+          color:#7C6950;padding-top:3px}
+  .cvr dd{margin:0;font-size:.97rem}
+  .cvr dd em{color:var(--dust);font-style:normal;font-size:.9rem;display:block}
+  .spec{position:relative}
+  .spec pre{
+    font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;line-height:1.6;
+    color:var(--dust);background:#14100C;border:1px solid var(--seam);border-radius:2px;
+    padding:14px;overflow-x:auto;margin:0;white-space:pre;
+  }
+  .spec button{position:absolute;top:9px;right:9px}
 
   ul.plain{list-style:none;padding:0;margin:0}
   ul.plain li{padding:9px 0;border-bottom:1px solid var(--seam)}
@@ -475,6 +487,83 @@
     <details class="box">
       <summary>Contact</summary>
       <p><a href="mailto:s.c.marshall98@gmail.com">s.c.marshall98@gmail.com</a></p>
+    </details>
+
+    <details class="box">
+      <summary>Hire me</summary>
+      <p>I'm not looking for work right now, but I'm always happy to chat — unless you expect me to do a LeetCode interview.</p>
+      <dl class="cvr">
+        <dt>2026 —</dt><dd>Google DeepMind, Amplified Oversight<em>Debate protocols, in theory and in post-training RL runs.</em></dd>
+        <dt>2025 – 26</dt><dd>UK AI Security Institute, Alignment Team<em>Debate theory, the debate iteration environment, and two research areas for The Alignment Project.</em></dd>
+        <dt>2020 – 25</dt><dd>PhD, Universiteit Leiden<em>Quantum complexity theory and quantum machine learning, with Vedran Dunjko. G. Rozenberg Award, 2024.</em></dd>
+        <dt>2022</dt><dd>MATS, with Beth Barnes<em>One of four on the first dangerous-capability evaluations.</em></dd>
+        <dt>2016 – 20</dt><dd>Maths and Physics, Warwick</dd>
+      </dl>
+      <p>Complexity theory, scalable oversight, and the parts of cryptography that turn out to be about oversight too. Based in London.</p>
+    </details>
+
+    <details class="box">
+      <summary>Design for this page</summary>
+      <p>If you want a model to build something in this style, hand it this.</p>
+      <div class="spec">
+        <button class="ghost" id="cpspec" type="button">Copy</button>
+        <pre id="specbox"># Visual identity — Simon C. Marshall
+
+## Origin
+Palette sampled from a photograph taken inside a cave, looking up:
+warm brown-black rock, amber daylight. Every colour derives from it.
+Never a cream background with a terracotta accent — that is the
+generic default this identity exists to avoid.
+
+## Colour
+--rock   #17130E   page ground, deepest
+--ledge  #201A13   raised surfaces, boxes, hero fallback
+--seam   #332618   1px rules, borders, dividers
+--ember  #E8862A   accent: links, emphasis, active state, data "on"
+--sand   #F0E2CC   primary text
+--dust   #B39B7C   secondary text, captions, labels
+Inset panels use #14100C. Muted data fills: #2B2118, #3A2D1E, #4A3826.
+Amber is for one thing at a time. If two things are amber, one is wrong.
+
+## Type
+Display  Fraunces 600, -0.015em, line-height 1.02, clamp(2.6rem,7vw,4.1rem)
+Body     Archivo 400, 17px, line-height 1.65
+Utility  JetBrains Mono 400/500, 10.5-12px, letter-spacing .08-.14em,
+         uppercase — section headings, labels, data, buttons
+Paper titles are Fraunces 400 at 1.16rem. Never bold body text for
+emphasis; use --ember or a mono label instead.
+
+## Layout
+Max measure 660px, centred, 24px side padding.
+Sections: 52px vertical padding, separated by a 1px --seam top border.
+Section headings are mono eyebrows in --dust, not large type.
+Border-radius 2-3px only. No shadows. No gradients except the hero
+scrim (transparent to --rock, bottom 100%).
+
+## Components
+Disclosure  summary in mono, --ember, prefixed "+ " closed and "– " open.
+            Multiple disclosures sit inline, side by side; the open one
+            takes full width.
+Explainer   bordered box, 2px --ember left rule, --ledge background,
+            mono uppercase heading in --ember.
+Demo panel  #14100C inset, mono readout rows with a fixed-width key
+            column in #7C6950 and values in --sand.
+Buttons     mono uppercase 12px. Primary: --ember fill, --rock text.
+            Ghost: transparent, --seam border, --dust text.
+
+## Motion
+Staged reveals on a timeline, roughly 400ms between beats — slow enough
+to read, and every stage must leave a trace the eye can return to.
+Transitions 150-300ms ease. Honour prefers-reduced-motion by collapsing
+all delays to zero rather than removing the end state.
+Interactive figures start only when their disclosure is opened.
+
+## Voice
+Plain, declarative, understated. Sentence case. No exclamation marks.
+No adjectives doing work a fact could do. Claims are specific enough to
+be checked, and anything unproven is labelled as unproven. Humour is
+dry and rare. British spelling.</pre>
+      </div>
     </details>
 
   </div>
@@ -878,6 +967,16 @@
   draw(); sample(0);
   var det=svg.closest('details');
   if(det) det.addEventListener('toggle',function(){ if(det.open){ draw(); sample(0); } });
+})();
+
+(function(){
+  var b=document.getElementById('cpspec'); if(!b) return;
+  b.addEventListener('click',function(){
+    var t=document.getElementById('specbox').textContent;
+    navigator.clipboard.writeText(t).then(function(){
+      b.textContent='Copied'; setTimeout(function(){ b.textContent='Copy'; },1600);
+    });
+  });
 })();
 </script>
 </body>
