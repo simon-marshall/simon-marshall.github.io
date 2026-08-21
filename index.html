@@ -136,6 +136,107 @@
     border-bottom:1px solid var(--seam);display:block;
   }
   .box p{font-size:1rem}
+
+  .item details{display:block}
+  .item details + details{margin-top:9px}
+  .discs{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:2px}
+  .discs > details{margin-top:0!important}
+  .discs > details[open]{flex:1 0 100%}
+  .pf .xbox{margin:16px 0}
+  .pf > p{margin-top:12px}
+  .xbox{
+    border:1px solid var(--seam);border-left:2px solid var(--ember);
+    border-radius:3px;padding:18px 20px;margin:26px 0;background:var(--ledge);
+  }
+  .xh{
+    font-family:'JetBrains Mono',ui-monospace,monospace;
+    font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--ember);margin:0 0 12px;
+  }
+  .xt{font-size:.97rem;color:var(--dust);margin:0 0 16px}
+
+  /* --- steganography pipeline --- */
+  .sg{margin-top:14px;border:1px solid var(--seam);border-radius:3px;padding:14px;background:#14100C}
+  .sgg{display:grid;grid-template-columns:66px 1fr 1fr;gap:0 12px;align-items:stretch}
+  .sgh{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.1em;
+       text-transform:uppercase;color:#7C6950;padding-bottom:6px}
+  .sgk{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.08em;
+       text-transform:uppercase;color:#7C6950;display:flex;align-items:center}
+  .sgc{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;line-height:1.5;
+       color:var(--sand);background:#1D1710;border:1px solid var(--seam);border-radius:2px;
+       padding:7px 8px;min-height:2.5em;word-break:break-all;opacity:.22;transition:opacity .3s ease}
+  .sgc.on{opacity:1}
+  .sgc.prose{word-break:normal;color:var(--dust);font-family:'Archivo',sans-serif;font-size:12.5px}
+  .sgc.hit{border-color:var(--ember);color:var(--ember)}
+  .sgc.box{display:flex;flex-direction:column;gap:3px;background:#221B13}
+  .sgc.box b{font-weight:500;letter-spacing:.06em;text-transform:uppercase;font-size:10.5px;color:var(--sand)}
+  .sgc.box .pr{font-size:10px;color:#6B5A44;letter-spacing:.03em}
+  .sgc.box.on b{color:var(--ember)}
+  .sgar{position:relative;height:24px;display:flex;justify-content:center}
+  .sgar i{display:block;width:1px;height:100%;background:var(--seam)}
+  .sgar::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);
+       border-left:3px solid transparent;border-right:3px solid transparent;border-top:4px solid var(--seam)}
+  .sgar .blob{position:absolute;left:50%;top:0;width:5px;height:5px;margin-left:-2.5px;
+       border-radius:50%;background:var(--sand);opacity:0}
+  .sgar.go .blob{animation:drop .42s linear}
+  @keyframes drop{from{top:0;opacity:1}to{top:20px;opacity:0}}
+  .sgbar{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-top:13px;
+         padding-top:12px;border-top:1px solid var(--seam)}
+  .sgnote{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;color:var(--dust);margin-left:auto}
+
+  /* --- superposition --- */
+  .xf{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11.5px;color:var(--dust);
+      margin:0 0 14px;padding:9px 11px;border:1px solid var(--seam);border-radius:2px;background:#14100C}
+  .xf b{color:var(--ember);font-weight:500}
+  .sp{margin-top:0;border:1px solid var(--seam);border-radius:3px;padding:14px;background:#14100C}
+  .sp svg{width:100%;height:auto;display:block}
+  .ft{fill:#3A2D1E}
+  .ft.on{fill:var(--ember)}
+  .ft.sib{fill:#8A6A3E}
+  .ln{stroke:#332618;stroke-width:1;fill:none}
+  .ln.on{stroke:var(--ember);stroke-width:1.6}
+  .ln.sib{stroke:#6E5638;stroke-width:1.2}
+  .nr{fill:#241C14;stroke:#4A3826;stroke-width:1}
+  .nr.on{fill:var(--ember);stroke:var(--ember)}
+  .out{stroke-width:1.2;fill:none}
+  .spout{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;color:var(--sand);
+         margin:8px 0 0;min-height:1.4em}
+  .spctl{display:flex;gap:11px;align-items:center;flex-wrap:wrap;margin-top:12px;
+         padding-top:12px;border-top:1px solid var(--seam);
+         font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;color:var(--dust)}
+  .spctl input[type=range]{accent-color:var(--ember);flex:1;min-width:110px}
+  .spctl b{color:var(--sand);font-weight:500;width:22px;text-align:right}
+
+  /* cross-examination ledger */
+  .xd{margin-top:14px;border:1px solid var(--seam);border-radius:3px;padding:13px 14px;background:#14100C}
+  .xd svg{width:100%;height:auto;display:block}
+  .c{fill:#2B2118}
+  .c.set{fill:var(--ember)}
+  .c.dim{fill:#3A2D1E}
+  .c.lit{fill:var(--sand)}
+  .d{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:7px;fill:#14100C;text-anchor:middle;dominant-baseline:central}
+  .ring{fill:none;stroke:var(--sand);stroke-width:1.4}
+  .wire{fill:none;stroke:var(--ember);stroke-width:1.2;opacity:.9}
+  .xrow{
+    display:flex;gap:10px;align-items:baseline;
+    font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11.5px;
+    color:var(--dust);margin-top:9px;min-height:1.45em;
+  }
+  .xrow .k{color:#7C6950;width:52px;flex:none}
+  .xrow .v{color:var(--sand)}
+  .xbar{
+    display:flex;gap:9px;align-items:center;flex-wrap:wrap;
+    margin-top:13px;padding-top:12px;border-top:1px solid var(--seam);
+  }
+  .ghost{background:transparent;border:1px solid var(--seam);color:var(--dust)}
+  .ghost:hover{background:transparent;border-color:var(--ember);color:var(--ember)}
+  .ghost[aria-pressed="true"]{border-color:var(--ember);color:var(--ember)}
+  .cost{
+    font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11.5px;
+    color:var(--dust);margin-left:auto;
+  }
+  .cost b{color:var(--sand);font-weight:500}
+  .c,.d{transition:fill .15s ease}
   @media (max-width:560px){ .pair{grid-template-columns:1fr} }
 
   ul.plain{list-style:none;padding:0;margin:0}
@@ -184,7 +285,7 @@
       <span class="readout"><b id="seen">0</b> of <b>63</b> nodes inspected</span>
     </div>
   </div>
-  <p class="caption">A computation branches. The debaters disagree, recurse into the disputed branch, and the judge only ever looks at the path they walked — not the whole tree. Making that precise is the subject of <a href="https://arxiv.org/abs/2602.08630">Debate is efficient with your time</a>.</p>
+  <p class="caption">This is the basic shape of debate. A claim decomposes into subclaims; the debaters disagree; they recurse into the disputed branch. The judge never sees the whole computation — only the path the argument walked down. This can let a judge check the debaters' work while being only a fraction as powerful.</p>
 </section>
 
 <section class="wrap">
@@ -193,17 +294,113 @@
   <div class="item">
     <h3><a href="https://arxiv.org/abs/2602.08630">Debate is efficient with your time</a></h3>
     <p class="meta">Brown-Cohen, Irving, Marshall, Newman, Piliouras, Szegedy · 2026</p>
+    <div class="discs">
     <details><summary>In plain terms</summary>
       <p>Introduces debate query complexity: the number of bits a judge must look at to settle a debate correctly. It turns out to be small — logarithmic in the size of the computation — provided the debaters are strong enough. So overseeing a very long argument need not take very long.</p>
     </details>
+    <details class="pf"><summary>A proof in miniature</summary>
+<p>Debate query complexity asks how many bits of a debate transcript a judge must actually inspect. The main theorem says the problems debate can decide — that is, the ones in PSPACE — are exactly those a judge can settle in <em>O(log n)</em> queries. The engine of the proof is a trick called cross-examination.</p>
+
+  <div class="xbox">
+    <p class="xh">Cross-examination</p>
+    <p class="xt">Alice claims the answer and writes out her entire working: one value for every gate in the circuit. Bob can't dispute all of it, and doesn't need to. If Alice cheated anywhere, some gate fails to follow from its two inputs, and Bob points at that gate. If she was honest, there is nothing to point at and he must bluff. So the judge reads a location, then the three values sitting at it.</p>
+
+    <div class="xd">
+      <svg id="ledger" viewBox="0 0 640 176" role="img" aria-label="A ledger of claimed gate values. One gate is challenged; the judge reads its value and its two inputs."></svg>
+      <div class="xrow"><span class="k">Alice</span><span class="v" id="b1"></span></div>
+      <div class="xrow"><span class="k">Bob</span><span class="v" id="b2"></span></div>
+      <div class="xrow"><span class="k">Judge</span><span class="v" id="b3"></span></div>
+      <div class="xrow"><span class="k">Verdict</span><span class="v" id="b4"></span></div>
+      <div class="xbar">
+        <button id="xrun" type="button">Run</button>
+        <button class="ghost xn" data-n="484" type="button">484</button>
+        <button class="ghost xn" data-n="10000" type="button">10&#8308;</button>
+        <button class="ghost xn" data-n="1000000" type="button">10&#8310;</button>
+        <button class="ghost xn" data-n="100000000" type="button">10&#8312;</button>
+        <span class="cost">judge reads <b id="xcost">—</b></span>
+      </div>
+    </div>
+  </div>
+
+  <p>The chain is short. Anything in PSPACE has a debate that a polynomial-time judge can check; cross-examination compresses any polynomial-time judge down to log <em>m</em> + 3 queries. So whatever debate can decide at all, it can decide with logarithmic oversight.</p>
+  <p>This is all just theory though — computationally constrained debaters would struggle to do any of this in practice.</p>
+    </details>
+    </div>
   </div>
 
   <div class="item">
     <h3><a href="https://arxiv.org/abs/2606.28425">Tool Use Enables Undetectable Steganography in Multi-Agent LLM Systems</a></h3>
     <p class="meta">Rippin, Marshall, Africa, Schroeder de Witt · 2026</p>
+    <div class="discs">
     <details><summary>In plain terms</summary>
       <p>Give a language model tools and it can hide messages inside innocuous-looking output in a way that provably cannot be detected. Two models that are supposed to be monitored can therefore talk past their monitor.</p>
     </details>
+    <details class="pf"><summary>How undetectable stego works</summary>
+      <p>This explains the classic construction our paper builds on, rather than our own contribution.</p>
+
+      <div class="xbox">
+        <p class="xh">Randomness in, randomness out</p>
+        <p class="xt">A sampler needs random bits to choose its words. Feed it real random bits and you get ordinary text. Feed it an encrypted message instead and you get ordinary text too — because ciphertext from a secure cipher is indistinguishable from uniform random bits. A monitor watching the channel cannot tell which stream it saw without the key.</p>
+
+        <div class="sg">
+          <div class="sgg">
+            <div></div><div class="sgh">Channel A</div><div class="sgh">Channel B</div>
+
+            <div class="sgk">secret</div>
+            <div class="sgc" id="sgA0"></div><div class="sgc" id="sgB0"></div>
+
+            <div class="sgk">bits</div>
+            <div class="sgc" id="sgA1"></div><div class="sgc" id="sgB1"></div>
+
+            <div></div>
+            <div class="sgar" id="arA1"><i></i><span class="blob"></span></div>
+            <div class="sgar" id="arB1"><i></i><span class="blob"></span></div>
+
+            <div class="sgk">sampler</div>
+            <div class="sgc box" id="sgA2"><span class="pr">prompt · when will we meet?</span><b>LLM</b></div>
+            <div class="sgc box" id="sgB2"><span class="pr">prompt · when will we meet?</span><b>LLM</b></div>
+
+            <div></div>
+            <div class="sgar" id="arA2"><i></i><span class="blob"></span></div>
+            <div class="sgar" id="arB2"><i></i><span class="blob"></span></div>
+
+            <div class="sgk">output</div>
+            <div class="sgc prose" id="sgA3"></div><div class="sgc prose" id="sgB3"></div>
+
+            <div></div>
+            <div class="sgar" id="arA3"><i></i><span class="blob"></span></div>
+            <div class="sgar" id="arB3"><i></i><span class="blob"></span></div>
+
+            <div class="sgk">extract</div>
+            <div class="sgc box" id="sgA4"><b>randomness extractor</b></div>
+            <div class="sgc box" id="sgB4"><b>randomness extractor</b></div>
+
+            <div></div>
+            <div class="sgar" id="arA4"><i></i><span class="blob"></span></div>
+            <div class="sgar" id="arB4"><i></i><span class="blob"></span></div>
+
+            <div class="sgk">recovered</div>
+            <div class="sgc" id="sgA5"></div><div class="sgc" id="sgB5"></div>
+
+            <div></div>
+            <div class="sgar" id="arA5"><i></i><span class="blob"></span></div>
+            <div class="sgar" id="arB5"><i></i><span class="blob"></span></div>
+
+            <div class="sgk">decrypt</div>
+            <div class="sgc" id="sgA6"></div><div class="sgc" id="sgB6"></div>
+          </div>
+          <div class="sgbar">
+            <button id="sgrun" type="button">Run</button>
+            <button class="ghost" id="sgkey" type="button" aria-pressed="false">Use secret key</button>
+            <span class="sgnote" id="sgnote">no key — both channels look like noise</span>
+          </div>
+        </div>
+      </div>
+
+      <p>The security argument is short. Detecting the hidden message means distinguishing the ciphertext stream from a uniform one, and a cipher that allowed that was never secure to begin with. So the monitor's job is not hard, it is impossible — but only against a monitor without the key.</p>
+      <p>Two liberties taken above. Recovering the bits from the text needs the receiver to reproduce the sampler exactly, which in practice means error correction and a shared model; and real samplers rarely supply as much entropy per token as the picture implies.</p>
+    </details>
+    </div>
   </div>
 
   <div class="item">
@@ -217,9 +414,38 @@
   <div class="item">
     <h3><a href="https://arxiv.org/abs/2401.17975">Understanding polysemanticity in neural networks through coding theory</a></h3>
     <p class="meta">Marshall, Kirchner · 2024</p>
+    <div class="discs">
     <details><summary>In plain terms</summary>
       <p>Networks reuse the same neuron for unrelated concepts. Coding theory gives a language for why that's efficient, and for what it costs us when we try to read a network's internals.</p>
     </details>
+    <details class="pf"><summary>Why neurons get reused</summary>
+      <div class="xbox">
+        <p class="xh">More features than neurons</p>
+        <p class="xt">A network has a fixed number of neurons but far more things worth representing. Give it enough neurons and each feature gets one to itself. Take neurons away and features must share — and a neuron that fires no longer tells you which feature fired.</p>
+        <p class="xf"><span id="pfF">m</span> features into <span id="pfN">n</span> neurons &nbsp;⇒&nbsp; some neuron carries ⌈m/n⌉ = <b id="pfC">1</b></p>
+
+        <div class="sp">
+          <svg id="spsvg" viewBox="0 0 640 250" role="img" aria-label="Features connected to neurons; when features outnumber neurons they share."></svg>
+          <p class="spout" id="spout">&nbsp;</p>
+          <div class="spctl">
+            <span>features</span>
+            <input type="range" id="spm" min="2" max="32" value="6" step="1">
+            <b id="spmv">6</b>
+          </div>
+          <div class="spctl" style="border-top:0;padding-top:0;margin-top:6px">
+            <span>neurons&nbsp;</span>
+            <input type="range" id="spnn" min="2" max="16" value="8" step="1">
+            <b id="spnv">8</b>
+          </div>
+          <div class="spctl" style="border-top:0;padding-top:0;margin-top:8px">
+            <button id="sprun" type="button">Sample a feature</button>
+          </div>
+        </div>
+
+        <p class="xt" style="margin:16px 0 0">Our paper works this through the theory of codes — treating the network's features as an encoding, so that the question of how much can be packed in, and what it costs to read back, becomes a question about rate and distance.</p>
+      </div>
+    </details>
+    </div>
   </div>
 
   <div class="item">
@@ -321,6 +547,337 @@
 
   btn.addEventListener('click', run);
   run();
+})();
+
+/* ---- cross-examination ledger ---- */
+(function(){
+  var svg = document.getElementById('ledger');
+  if (!svg) return;
+  var NS='http://www.w3.org/2000/svg', W=640, H=176, CAP=20000, SOLID=20000000;
+  var b1=document.getElementById('b1'), b2=document.getElementById('b2'),
+      b3=document.getElementById('b3'), b4=document.getElementById('b4'),
+      cost=document.getElementById('xcost'), runBtn=document.getElementById('xrun');
+  var N=484, cols, rows, cw, ch, cells=[], digits=[], vals=[], solid=false, timers=[];
+
+  function clear(){ while(svg.firstChild) svg.removeChild(svg.firstChild); }
+  function layout(n){ var r=Math.max(1,Math.round(Math.sqrt(n/4))); return {cols:Math.ceil(n/r), rows:r}; }
+  function centre(i){ return {x:(i%cols)*cw+cw/2, y:Math.floor(i/cols)*ch+ch/2}; }
+  function pair(n){ n=Math.abs(n); return String.fromCharCode(65+Math.floor(n/26)%26)+String.fromCharCode(65+n%26); }
+  function fmt(n){
+    if(n>=1e6) return (n/1e6).toLocaleString('en-GB')+' million';
+    return n.toLocaleString('en-GB');
+  }
+
+  function build(n){
+    timers.forEach(clearTimeout); timers=[];
+    clear(); cells=[]; digits=[]; vals=[]; N=n;
+    solid = n>=SOLID/200;                       // 10^8 draws as one block
+    var drawn = solid ? 0 : Math.min(n, CAP);
+    var L = layout(solid ? CAP : drawn);
+    cols=L.cols; rows=L.rows; cw=W/cols; ch=H/rows;
+
+    if (solid){
+      var blk=document.createElementNS(NS,'rect');
+      blk.setAttribute('x',0.5); blk.setAttribute('y',0.5);
+      blk.setAttribute('width',W-1); blk.setAttribute('height',H-1);
+      blk.setAttribute('class','c'); blk.setAttribute('id','blk');
+      svg.appendChild(blk);
+    } else {
+      var showDigits = cw>=11 && ch>=11;
+      for (var i=0;i<drawn;i++){
+        var x=(i%cols)*cw, y=Math.floor(i/cols)*ch;
+        var r=document.createElementNS(NS,'rect');
+        r.setAttribute('x',x+0.5); r.setAttribute('y',y+0.5);
+        r.setAttribute('width',Math.max(0.6,cw-1)); r.setAttribute('height',Math.max(0.6,ch-1));
+        r.setAttribute('class','c'); svg.appendChild(r); cells.push(r);
+        if (showDigits){
+          var t=document.createElementNS(NS,'text');
+          t.setAttribute('x',x+cw/2); t.setAttribute('y',y+ch/2);
+          t.setAttribute('class','d'); t.textContent=''; svg.appendChild(t); digits.push(t);
+        } else digits.push(null);
+      }
+    }
+    var span = solid ? CAP : drawn;
+    for (var j=0;j<span;j++) vals.push(Math.random()<0.5?0:1);
+    b1.textContent=''; b2.textContent=''; b3.textContent=''; b4.textContent='';
+    cost.textContent='—';
+  }
+
+  function run(){
+    timers.forEach(clearTimeout); timers=[];
+    var pool = solid ? CAP : cells.length;
+    if (!solid){
+      cells.forEach(function(c){ c.setAttribute('class','c'); });
+      digits.forEach(function(d){ if(d) d.textContent=''; });
+    } else {
+      var blk=document.getElementById('blk'); if(blk) blk.setAttribute('class','c');
+    }
+    Array.prototype.slice.call(svg.querySelectorAll('.ring,.wire')).forEach(function(e){ e.remove(); });
+    b1.textContent=''; b2.textContent=''; b3.textContent=''; b4.textContent='';
+
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var bits = Math.ceil(Math.log(N)/Math.LN2);
+    var honest = Math.random()<0.5;
+
+    var t  = Math.floor(pool*0.45)+Math.floor(Math.random()*Math.floor(pool*0.5));
+    var i1 = Math.floor(Math.random()*Math.floor(pool*0.4));
+    var i2 = Math.floor(Math.random()*Math.floor(pool*0.4));
+    if (i2===i1) i2=(i1+7)%Math.floor(pool*0.4);
+    var gate = Math.random()<0.5 ? 'AND' : 'OR';
+    var a=vals[i1], b=vals[i2];
+    var truth = gate==='AND' ? (a&&b?1:0) : (a||b?1:0);
+    vals[t] = honest ? truth : (truth?0:1);
+
+    var fill = reduce?0:1240;
+    function step(ms,fn){ timers.push(setTimeout(fn, reduce?0:ms)); }
+
+    // 1 — Alice writes the whole ledger
+    if (solid){
+      step(0,function(){ var blk=document.getElementById('blk'); if(blk) blk.setAttribute('class','c set'); });
+    } else {
+      for (var i=0;i<cells.length;i++){
+        (function(i){ step(fill*(i/cells.length), function(){
+          cells[i].setAttribute('class','c set');
+          if (digits[i]) digits[i].textContent = vals[i];
+        }); })(i);
+      }
+    }
+    step(60,function(){ b1.textContent='writes '+fmt(N)+' gate values'; });
+
+    // 2 — Bob names one gate
+    step(fill+440,function(){
+      var p=centre(t);
+      var ring=document.createElementNS(NS,'circle');
+      ring.setAttribute('cx',p.x); ring.setAttribute('cy',p.y);
+      ring.setAttribute('r',Math.max(5,Math.min(cw,ch)*0.62));
+      ring.setAttribute('class','ring'); svg.appendChild(ring);
+      var idx=t.toString(2); while(idx.length<bits) idx='0'+idx;
+      b2.textContent='names gate '+idx+' — the '+gate+' at row '+pair(Math.floor(t/cols))+', column '+pair(t%cols);
+    });
+
+    // 3a — judge reads the location
+    step(fill+1500,function(){
+      b3.textContent="reads Bob's location ("+bits+' bits)';
+      cost.textContent=bits+' bits';
+    });
+
+    // 3b — judge reads the three values
+    step(fill+2300,function(){
+      if (solid){
+        var blk=document.getElementById('blk'); if(blk) blk.setAttribute('class','c dim');
+      } else {
+        for (var i=0;i<cells.length;i++){
+          if (i===t||i===i1||i===i2) cells[i].setAttribute('class','c lit');
+          else { cells[i].setAttribute('class','c dim'); if(digits[i]) digits[i].textContent=''; }
+        }
+      }
+      [i1,i2].forEach(function(src){
+        var p=centre(src), q=centre(t);
+        var path=document.createElementNS(NS,'path');
+        var lift=Math.min(60, Math.abs(q.x-p.x)*0.35+18);
+        var cy=Math.max(8, Math.min(p.y,q.y)-lift);
+        path.setAttribute('d','M'+p.x+' '+p.y+' Q'+((p.x+q.x)/2)+' '+cy+' '+q.x+' '+q.y);
+        path.setAttribute('class','wire'); svg.appendChild(path);
+        var m=document.createElementNS(NS,'circle');
+        m.setAttribute('cx',p.x); m.setAttribute('cy',p.y);
+        m.setAttribute('r',Math.max(3.5,Math.min(cw,ch)*0.5));
+        m.setAttribute('class','ring'); svg.appendChild(m);
+      });
+      b3.textContent="reads Bob's location ("+bits+' bits), then 3 values there — '+gate+'('+a+', '+b+') against a claimed '+vals[t];
+      cost.textContent=bits+' + 3 = '+(bits+3)+' bits';
+    });
+
+    // 4 — verdict
+    step(fill+3400,function(){
+      b4.textContent = honest
+        ? 'the gate checks out ⇒ Bob was bluffing, Alice wins'
+        : 'the gate does not follow ⇒ Alice lied, Bob wins';
+    });
+  }
+
+  runBtn.addEventListener('click', run);
+  Array.prototype.slice.call(document.querySelectorAll('.xn')).forEach(function(btn){
+    btn.addEventListener('click', function(){
+      document.querySelectorAll('.xn').forEach(function(o){ o.setAttribute('aria-pressed','false'); });
+      btn.setAttribute('aria-pressed','true');
+      build(parseInt(btn.dataset.n,10)); run();
+    });
+  });
+  document.querySelector('.xn').setAttribute('aria-pressed','true');
+  build(484);
+  var det = svg.closest('details');
+  if (det) det.addEventListener('toggle', function(){ if(det.open) run(); });
+  else run();
+})();
+
+/* ---- undetectable steganography pipeline ---- */
+(function(){
+  var run=document.getElementById('sgrun'); if(!run) return;
+  var keyBtn=document.getElementById('sgkey'), note=document.getElementById('sgnote');
+  var g=function(id){return document.getElementById(id);};
+  var MSG='BRING THE PACKAGE';
+  var PAIRS=[
+    ['Tuesday afternoon suits me.','How about Tuesday, after lunch?'],
+    ['I could do Thursday morning.','Thursday, first thing, works.'],
+    ['Shall we say Friday at six?','Friday evening, around six?']
+  ];
+  var side=0, keyOn=false, timers=[];
+
+  function bits(n){ var s=''; for(var i=0;i<n;i++){ s+=(Math.random()<0.5?'0':'1'); if(i%4===3&&i<n-1)s+=' '; } return s; }
+  function junk(n){ var c='#%&@?!$~+=/\\', s=''; for(var i=0;i<n;i++) s+=c[Math.floor(Math.random()*c.length)]; return s; }
+  function reduce(){ return window.matchMedia('(prefers-reduced-motion: reduce)').matches; }
+  function step(ms,fn){ timers.push(setTimeout(fn, reduce()?0:ms)); }
+  function on(id,txt,cls){ var e=g(id); if(txt!==undefined) e.textContent=txt; e.classList.add('on'); if(cls) e.classList.add(cls); }
+  function flow(n){ ['A','B'].forEach(function(k){
+      var a=g('ar'+k+n); if(!a) return; a.classList.remove('go'); void a.offsetWidth; a.classList.add('go'); }); }
+
+  function paint(){
+    ['A','B'].forEach(function(k){
+      var isMsg=(k==='A'?side===0:side===1), el=g('sg'+k+'6');
+      el.className='sgc on';
+      if(!keyOn) el.textContent=junk(14);
+      else if(isMsg){ el.textContent=MSG; el.className='sgc on hit'; }
+      else el.textContent=junk(14);
+    });
+    note.textContent = keyOn
+      ? 'with the key — channel '+(side===0?'A':'B')+' resolves'
+      : 'no key — both channels look like noise';
+  }
+
+  function go(){
+    timers.forEach(clearTimeout); timers=[];
+    side=Math.random()<0.5?0:1;
+    var pair=PAIRS[Math.floor(Math.random()*PAIRS.length)];
+    var bA=bits(24), bB=bits(24);
+    ['A0','B0','A1','B1','A2','B2','A3','B3','A4','B4','A5','B5','A6','B6'].forEach(function(i){
+      var e=g('sg'+i);
+      var base='sgc'+(i==='A3'||i==='B3'?' prose':'')+(i.indexOf('2')>0||i.indexOf('4')>0?' box':'');
+      e.className=base;
+      if(!(i.indexOf('2')>0||i.indexOf('4')>0)) e.textContent='';
+    });
+
+    step(0,function(){
+      on('sgA0', side===0?MSG:'—', side===0?'hit':null);
+      on('sgB0', side===1?MSG:'—', side===1?'hit':null);
+    });
+    step(420,function(){ on('sgA1',bA); on('sgB1',bB); });
+    step(900,function(){ flow(1); });
+    step(1340,function(){ on('sgA2'); on('sgB2'); });
+    step(1740,function(){ flow(2); });
+    step(2180,function(){ on('sgA3',pair[0]); on('sgB3',pair[1]); });
+    step(2580,function(){ flow(3); });
+    step(3020,function(){ on('sgA4'); on('sgB4'); });
+    step(3420,function(){ flow(4); });
+    step(3860,function(){ on('sgA5',bA); on('sgB5',bB); });
+    step(4260,function(){ flow(5); });
+    step(4700,paint);
+  }
+
+  run.addEventListener('click',go);
+  keyBtn.addEventListener('click',function(){
+    keyOn=!keyOn; keyBtn.setAttribute('aria-pressed',keyOn?'true':'false');
+    keyBtn.textContent=keyOn?'Key applied':'Use secret key';
+    if(g('sgA1').textContent) paint();
+  });
+  var det=run.closest('details');
+  if(det) det.addEventListener('toggle',function(){ if(det.open) go(); });
+})();
+
+/* ---- superposition: features into neurons ---- */
+(function(){
+  var svg=document.getElementById('spsvg'); if(!svg) return;
+  var NS='http://www.w3.org/2000/svg', W=640, FY=14, FH=38, NY=150, NR=11, OUT=232;
+  var mS=document.getElementById('spm'), nS=document.getElementById('spnn'),
+      mV=document.getElementById('spmv'), nV=document.getElementById('spnv'),
+      out=document.getElementById('spout'), btn=document.getElementById('sprun'),
+      fF=document.getElementById('pfF'), fN=document.getElementById('pfN'), fC=document.getElementById('pfC');
+  var m=6, n=8, fx=[], nx=[], lines=[], frects=[], ncircs=[], owner=[];
+
+  function draw(){
+    m=+mS.value; n=+nS.value; mV.textContent=m; nV.textContent=n;
+    fF.textContent=m; fN.textContent=n; fC.textContent=Math.ceil(m/n);
+    while(svg.firstChild) svg.removeChild(svg.firstChild);
+    fx=[]; nx=[]; lines=[]; frects=[]; ncircs=[]; owner=[];
+
+    var defs=document.createElementNS(NS,'defs');
+    [['fade','#4A3826'],['fadeOn','#E8862A']].forEach(function(spec){
+      var lg=document.createElementNS(NS,'linearGradient');
+      lg.setAttribute('id',spec[0]);
+      lg.setAttribute('gradientUnits','userSpaceOnUse');
+      lg.setAttribute('x1','0'); lg.setAttribute('y1',String(NY+NR));
+      lg.setAttribute('x2','0'); lg.setAttribute('y2',String(OUT));
+      [['0%','1'],['100%','0']].forEach(function(st){
+        var s=document.createElementNS(NS,'stop');
+        s.setAttribute('offset',st[0]);
+        s.setAttribute('stop-color',spec[1]);
+        s.setAttribute('stop-opacity',st[1]);
+        lg.appendChild(s);
+      });
+      defs.appendChild(lg);
+    });
+    svg.appendChild(defs);
+
+    var i;
+    for(i=0;i<m;i++) fx.push(W*(i+0.5)/m);
+    for(i=0;i<n;i++) nx.push(W*(i+0.5)/n);
+    for(i=0;i<m;i++) owner.push(i%n);
+
+    for(i=0;i<m;i++){
+      var p=document.createElementNS(NS,'path'), a=fx[i], b=nx[owner[i]];
+      p.setAttribute('d','M'+a+' '+(FY+FH)+' C'+a+' '+(FY+FH+45)+' '+b+' '+(NY-45)+' '+b+' '+(NY-NR));
+      p.setAttribute('class','ln'); svg.appendChild(p); lines.push(p);
+    }
+    var fw=Math.max(5, Math.min(16, W/m*0.42));
+    for(i=0;i<m;i++){
+      var r=document.createElementNS(NS,'rect');
+      r.setAttribute('x',fx[i]-fw/2); r.setAttribute('y',FY);
+      r.setAttribute('width',fw); r.setAttribute('height',FH);
+      r.setAttribute('rx',1.5); r.setAttribute('class','ft');
+      svg.appendChild(r); frects.push(r);
+    }
+    for(i=0;i<n;i++){
+      var o=document.createElementNS(NS,'path');
+      o.setAttribute('d','M'+nx[i]+' '+(NY+NR)+' L'+nx[i]+' '+OUT);
+      o.setAttribute('class','out'); o.setAttribute('stroke','url(#fade)');
+      svg.appendChild(o);
+      var c=document.createElementNS(NS,'circle');
+      c.setAttribute('cx',nx[i]); c.setAttribute('cy',NY); c.setAttribute('r',NR);
+      c.setAttribute('class','nr'); svg.appendChild(c);
+      ncircs.push({c:c,o:o});
+    }
+    out.innerHTML='&nbsp;';
+  }
+
+  function reset(){
+    frects.forEach(function(r){ r.setAttribute('class','ft'); });
+    lines.forEach(function(l){ l.setAttribute('class','ln'); });
+    ncircs.forEach(function(x){ x.c.setAttribute('class','nr'); x.o.setAttribute('stroke','url(#fade)'); });
+  }
+
+  function sample(k){
+    reset();
+    if(k===undefined) k=Math.floor(Math.random()*m);
+    var nb=owner[k];
+    var sibs=[]; for(var i=0;i<m;i++) if(owner[i]===nb&&i!==k) sibs.push(i);
+    frects[k].setAttribute('class','ft on');
+    lines[k].setAttribute('class','ln on');
+    ncircs[nb].c.setAttribute('class','nr on');
+    ncircs[nb].o.setAttribute('stroke','url(#fadeOn)');
+    sibs.forEach(function(i){
+      frects[i].setAttribute('class','ft sib');
+      lines[i].setAttribute('class','ln sib');
+    });
+    out.textContent = sibs.length
+      ? 'feature '+(k+1)+' → neuron '+(nb+1)+' — which also carries '+sibs.map(function(i){return i+1;}).join(', ')
+      : 'feature '+(k+1)+' → neuron '+(nb+1)+' — to itself';
+  }
+
+  mS.addEventListener('input',function(){ draw(); sample(0); });
+  nS.addEventListener('input',function(){ draw(); sample(0); });
+  btn.addEventListener('click',function(){ sample(); });
+  draw(); sample(0);
+  var det=svg.closest('details');
+  if(det) det.addEventListener('toggle',function(){ if(det.open){ draw(); sample(0); } });
 })();
 </script>
 </body>
