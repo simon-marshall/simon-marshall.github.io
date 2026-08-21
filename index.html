@@ -1,48 +1,327 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simon C. Marshall</title>
-    <link rel="stylesheet" href="styles.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simon C. Marshall</title>
+<meta name="description" content="Simon C. Marshall — research scientist on amplified oversight at Google DeepMind. Complexity theory and AI safety via debate.">
+<meta property="og:title" content="Simon C. Marshall">
+<meta property="og:description" content="Complexity theory and AI safety via debate.">
+<meta property="og:image" content="photos/header2.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Archivo:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --rock:#17130E;
+    --ledge:#201A13;
+    --seam:#332618;
+    --ember:#E8862A;
+    --sand:#F0E2CC;
+    --dust:#B39B7C;
+    --measure:660px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:var(--rock);
+    color:var(--sand);
+    font-family:'Archivo',system-ui,sans-serif;
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--ember);text-decoration:none;border-bottom:1px solid rgba(232,134,42,.35)}
+  a:hover{border-bottom-color:var(--ember)}
+  :focus-visible{outline:2px solid var(--ember);outline-offset:3px}
+  .wrap{max-width:var(--measure);margin:0 auto;padding:0 24px}
+
+  /* ---------- hero ---------- */
+  header.hero{
+    position:relative;
+    min-height:min(74vh,560px);
+    display:flex;align-items:flex-end;
+    background:var(--ledge) url('photos/header2.jpg') center 40% / cover no-repeat;
+  }
+  header.hero::after{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(to bottom,rgba(23,19,14,.30) 0%,rgba(23,19,14,.62) 55%,var(--rock) 100%);
+  }
+  .hero-inner{position:relative;z-index:1;width:100%;padding-bottom:52px}
+  .eyebrow{
+    font-family:'JetBrains Mono',ui-monospace,monospace;
+    font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--ember);margin:0 0 14px;
+  }
+  h1{
+    font-family:'Fraunces',Georgia,serif;
+    font-weight:600;font-size:clamp(2.6rem,7vw,4.1rem);
+    line-height:1.02;margin:0 0 16px;letter-spacing:-.015em;
+  }
+  .standfirst{font-size:1.12rem;color:var(--sand);max-width:34em;margin:0;opacity:.92}
+
+  /* ---------- sections ---------- */
+  section{padding:52px 0}
+  section + section{border-top:1px solid var(--seam)}
+  h2{
+    font-family:'JetBrains Mono',ui-monospace,monospace;
+    font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--dust);margin:0 0 22px;
+  }
+  p{margin:0 0 18px}
+  p:last-child{margin-bottom:0}
+
+  /* ---------- debate tree ---------- */
+  .demo{background:var(--ledge);border:1px solid var(--seam);border-radius:3px;padding:22px}
+  .demo svg{width:100%;height:auto;display:block}
+  .edge{stroke:#3D2E1D;stroke-width:1}
+  .edge.lit{stroke:var(--ember);stroke-width:1.8}
+  .node{fill:#4A3826}
+  .node.lit{fill:var(--ember)}
+  .node.judge{fill:var(--sand)}
+  .demo-bar{
+    display:flex;align-items:center;gap:16px;flex-wrap:wrap;
+    margin-top:18px;padding-top:16px;border-top:1px solid var(--seam);
+  }
+  button{
+    font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--rock);background:var(--ember);
+    border:0;border-radius:2px;padding:9px 16px;cursor:pointer;
+  }
+  button:hover{background:#F49A45}
+  .readout{
+    font-family:'JetBrains Mono',ui-monospace,monospace;
+    font-size:12.5px;color:var(--dust);
+  }
+  .readout b{color:var(--sand);font-weight:500}
+  .caption{font-size:.92rem;color:var(--dust);margin-top:16px}
+
+  /* ---------- work ---------- */
+  .item{padding:20px 0;border-bottom:1px solid var(--seam)}
+  .item:last-child{border-bottom:0}
+  .item h3{
+    font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:1.16rem;
+    line-height:1.35;margin:0 0 6px;
+  }
+  .meta{
+    font-family:'JetBrains Mono',ui-monospace,monospace;
+    font-size:11.5px;letter-spacing:.05em;color:var(--dust);margin:0 0 10px;
+  }
+  details summary{
+    list-style:none;cursor:pointer;display:inline-block;
+    font-family:'JetBrains Mono',ui-monospace,monospace;
+    font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ember);
+  }
+  details summary::-webkit-details-marker{display:none}
+  details summary::before{content:'+ ';}
+  details[open] summary::before{content:'– ';}
+  details p{margin:12px 0 0;color:var(--dust);font-size:.96rem}
+
+  /* paired disclosure boxes */
+  .pair{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
+  .box{
+    border:1px solid var(--seam);border-radius:3px;
+    background:var(--ledge);padding:15px 18px;
+  }
+  .box[open]{grid-column:1 / -1}
+  .box > summary{
+    font-family:'JetBrains Mono',ui-monospace,monospace;
+    font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--dust);
+  }
+  .box > summary:hover{color:var(--ember)}
+  .box[open] > summary{
+    margin-bottom:14px;padding-bottom:12px;
+    border-bottom:1px solid var(--seam);display:block;
+  }
+  .box p{font-size:1rem}
+  @media (max-width:560px){ .pair{grid-template-columns:1fr} }
+
+  ul.plain{list-style:none;padding:0;margin:0}
+  ul.plain li{padding:9px 0;border-bottom:1px solid var(--seam)}
+  ul.plain li:last-child{border-bottom:0}
+
+  footer{padding:36px 0 60px;color:var(--dust);font-size:.88rem}
+
+  @media (max-width:560px){
+    body{font-size:16px}
+    section{padding:40px 0}
+    .hero-inner{padding-bottom:36px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *{transition:none!important}
+  }
+  .node,.edge{transition:fill .18s ease,stroke .18s ease}
+</style>
 </head>
 <body>
-    <header>
-        <h1>Simon C. Marshall</h1>
-    </header>
-    <main>
-        <div class="button-container">
-            <a href="index.html" class="btn blue">Home</a>
-            <a href="CV.html" class="btn red">CV</a>
-            <a href="Research.html" class="btn green">Research</a>
-        </div>
-        <div class="container">
-            <p>Hi, I'm a research scientist on the alignment team at the UK's AI Security Institute (AISI). 
-                I mainly focus on how complexity theory can be used in AI alignment, which typical involves work on
-                AI safety via debate.</p>
 
-            <p> I recieved my PhD from Leiden University for my contributions to quantum computing, in topics from quantum complexity theory to 
-                quantum machine learning and circuit cutting, where I was advised by Vedran Dunjko. My personal favourite from this line of research
-                is a proof that if classical computers can compute all functions that quantum computers can, then the polynomial hierarchy collapses
-                to it's second level (with some light additional assumptions).</p>
-            <p> Alongside my PhD I completed a few projects in AI safety: One using information theory to analyse how models may encode information and how interpretable these
-                encodings would be with Jan Kirchner and I worked with Beth Barnes on the first round of what became 
-                <a href="https://metr.org/"> METR Evals</a>, assessing the risk posed by modern LLMs as part of MATS 2.0. </p>
-            
-                <p> Before my PhD I was aligned as an undergraduate in Maths+Physics at Warwick University,
-                    where I completed my Master dissertation in fluid dynamics under <a href= "https://jamessprittles.com/">
-                    James Sprittles </a>. Through this connection, I can trace my mathematical genealogy back to Poisson,
-                    Cauchy, Lagrange, Laplace and Euler. I have an Erdős number of 4 through a collaboration with Scott 
-                    Aaronson and a Bacon number of Infinity that I don't get from a collaboration with Jack Nicholson.
-                    I am open to any collaboration that would lower either of these numbers.</p
-        </div>
-        <section>
-            <h2>Contact</h2>
-            <p>Relevant contact information can be acquired via email.</p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 SCM</p>
-    </footer>
+<header class="hero">
+  <div class="hero-inner wrap">
+    <p class="eyebrow">Google DeepMind · Amplified Oversight</p>
+    <h1>Simon C. Marshall</h1>
+    <p class="standfirst">I work on scalable oversight — mostly AI safety via debate, from proofs about what protocols can guarantee to experiments on frontier models.</p>
+  </div>
+</header>
+
+<main>
+
+<section class="wrap">
+  <h2>About</h2>
+  <p>I'm a research scientist on the Amplified Oversight team at Google DeepMind. Before that I was on the alignment team at the UK AI Security Institute. I work at both ends of the problem: proving what oversight protocols can and can't guarantee, and running the experiments that test whether those guarantees survive contact with real models.</p>
+  <p>I did my PhD at Leiden with Vedran Dunjko, on quantum complexity theory and quantum machine learning. My favourite result from that period is a proof that if classical computers can compute every function quantum computers can, the polynomial hierarchy collapses to its second level, the tightest collapse of this kind anyone has shown.</p>
+  <p>Alongside the PhD I worked on interpretability with Jan Kirchner. I did my MATS with Beth Barnes, on the first dangerous-capability evaluations for language models — the work that grew into <a href="https://metr.org/">METR</a>.</p>
+</section>
+
+<section class="wrap">
+  <h2>How little a judge has to check</h2>
+  <div class="demo">
+    <svg id="tree" viewBox="0 0 640 250" role="img" aria-label="A binary tree of 63 nodes; a debate inspects only one root-to-leaf path of 6 nodes."></svg>
+    <div class="demo-bar">
+      <button id="run" type="button">Run a debate</button>
+      <span class="readout"><b id="seen">0</b> of <b>63</b> nodes inspected</span>
+    </div>
+  </div>
+  <p class="caption">A computation branches. The debaters disagree, recurse into the disputed branch, and the judge only ever looks at the path they walked — not the whole tree. Making that precise is the subject of <a href="https://arxiv.org/abs/2602.08630">Debate is efficient with your time</a>.</p>
+</section>
+
+<section class="wrap">
+  <h2>Selected work</h2>
+
+  <div class="item">
+    <h3><a href="https://arxiv.org/abs/2602.08630">Debate is efficient with your time</a></h3>
+    <p class="meta">Brown-Cohen, Irving, Marshall, Newman, Piliouras, Szegedy · 2026</p>
+    <details><summary>In plain terms</summary>
+      <p>Introduces debate query complexity: the number of bits a judge must look at to settle a debate correctly. It turns out to be small — logarithmic in the size of the computation — provided the debaters are strong enough. So overseeing a very long argument need not take very long.</p>
+    </details>
+  </div>
+
+  <div class="item">
+    <h3><a href="https://arxiv.org/abs/2606.28425">Tool Use Enables Undetectable Steganography in Multi-Agent LLM Systems</a></h3>
+    <p class="meta">Rippin, Marshall, Africa, Schroeder de Witt · 2026</p>
+    <details><summary>In plain terms</summary>
+      <p>Give a language model tools and it can hide messages inside innocuous-looking output in a way that provably cannot be detected. Two models that are supposed to be monitored can therefore talk past their monitor.</p>
+    </details>
+  </div>
+
+  <div class="item">
+    <h3><a href="https://arxiv.org/abs/2410.20935">Improved separation between quantum and classical computers for sampling and functional tasks</a></h3>
+    <p class="meta">Marshall, Aaronson, Dunjko · 2024</p>
+    <details><summary>In plain terms</summary>
+      <p>If classical computers could compute everything quantum computers can, something implausible follows: a tower of complexity classes flattens to its second level. The strongest known collapse of this kind, and evidence that quantum computers really are doing something else.</p>
+    </details>
+  </div>
+
+  <div class="item">
+    <h3><a href="https://arxiv.org/abs/2401.17975">Understanding polysemanticity in neural networks through coding theory</a></h3>
+    <p class="meta">Marshall, Kirchner · 2024</p>
+    <details><summary>In plain terms</summary>
+      <p>Networks reuse the same neuron for unrelated concepts. Coding theory gives a language for why that's efficient, and for what it costs us when we try to read a network's internals.</p>
+    </details>
+  </div>
+
+  <div class="item">
+    <h3>Parametrized quantum policies for reinforcement learning</h3>
+    <p class="meta">Jerbi, Gyurik, Marshall, Briegel, Dunjko · NeurIPS 2021</p>
+    <details><summary>In plain terms</summary>
+      <p>A working quantum reinforcement learning agent, plus a proof of a task it learns and no classical agent can.</p>
+    </details>
+  </div>
+
+  <p class="caption" style="margin-top:22px">Everything else is on <a href="https://scholar.google.com/citations?user=2Uue_O4AAAAJ&hl=en">Google Scholar</a>.</p>
+</section>
+
+<section class="wrap">
+  <div class="pair">
+
+    <details class="box">
+      <summary>Also</summary>
+      <ul class="plain">
+        <li>I wrote two of the nine research areas for <a href="https://alignmentproject.aisi.gov.uk/">The Alignment Project</a>: <a href="https://www.alignmentforum.org/posts/BxwBBaLonX88dwDqT/research-areas-in-computational-complexity-theory-the">computational complexity theory</a> and <a href="https://www.alignmentforum.org/posts/5rBXBew4T3cnnvBsh/research-areas-in-information-theory-and-cryptography-the">information theory and cryptography</a>.</li>
+        <li>I built the <a href="https://github.com/UKGovernmentBEIS/debate-iteration-environment">debate iteration environment</a>, an open-source codebase for testing debate protocols against fixed datasets.</li>
+        <li>Before Leiden I read Maths and Physics at Warwick, and wrote a master's dissertation on fluid dynamics under <a href="https://jamessprittles.com/">James Sprittles</a> &mdash; through whom my mathematical genealogy runs back to Poisson, Cauchy, Lagrange, Laplace and Euler.</li>
+        <li>Erd&#337;s number 2, via Mario Szegedy. Bacon number infinity, which a collaboration with Jack Nicholson has stubbornly failed to fix. I remain open to collaborations that lower either.</li>
+      </ul>
+    </details>
+
+    <details class="box">
+      <summary>Contact</summary>
+      <p><a href="mailto:s.c.marshall98@gmail.com">s.c.marshall98@gmail.com</a></p>
+    </details>
+
+  </div>
+</section>
+
+</main>
+
+<footer class="wrap">© 2026 Simon C. Marshall</footer>
+
+<script>
+(function(){
+  var DEPTH = 5, W = 640, TOP = 14, GAP = 44;
+  var svg = document.getElementById('tree');
+  var seen = document.getElementById('seen');
+  var btn = document.getElementById('run');
+  var NS = 'http://www.w3.org/2000/svg';
+  var nodes = {}, edges = {}, timers = [];
+
+  function x(d,i){ return W*(i+0.5)/Math.pow(2,d); }
+  function y(d){ return TOP + d*GAP; }
+
+  for (var d=0; d<DEPTH; d++){
+    for (var i=0; i<Math.pow(2,d); i++){
+      for (var c=0; c<2; c++){
+        var l = document.createElementNS(NS,'line');
+        l.setAttribute('x1',x(d,i)); l.setAttribute('y1',y(d));
+        l.setAttribute('x2',x(d+1,2*i+c)); l.setAttribute('y2',y(d+1));
+        l.setAttribute('class','edge');
+        svg.appendChild(l);
+        edges[d+':'+i+':'+c] = l;
+      }
+    }
+  }
+  for (var d=0; d<=DEPTH; d++){
+    for (var i=0; i<Math.pow(2,d); i++){
+      var cir = document.createElementNS(NS,'circle');
+      cir.setAttribute('cx',x(d,i)); cir.setAttribute('cy',y(d));
+      cir.setAttribute('r', d===DEPTH ? 2.6 : 3.6);
+      cir.setAttribute('class','node');
+      svg.appendChild(cir);
+      nodes[d+':'+i] = cir;
+    }
+  }
+
+  function reset(){
+    timers.forEach(clearTimeout); timers = [];
+    for (var k in nodes) nodes[k].setAttribute('class','node');
+    for (var k2 in edges) edges[k2].setAttribute('class','edge');
+    seen.textContent = '0';
+  }
+
+  function run(){
+    reset();
+    var path = [0], idx = 0;
+    for (var d=0; d<DEPTH; d++){ idx = 2*idx + (Math.random()<0.5?0:1); path.push(idx); }
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var step = reduce ? 0 : 320;
+
+    path.forEach(function(node,d){
+      timers.push(setTimeout(function(){
+        nodes[d+':'+node].setAttribute('class', d===DEPTH ? 'node judge' : 'node lit');
+        if (d>0){
+          var parent = Math.floor(node/2), child = node%2;
+          edges[(d-1)+':'+parent+':'+child].setAttribute('class','edge lit');
+        }
+        seen.textContent = String(d+1);
+      }, step*d));
+    });
+  }
+
+  btn.addEventListener('click', run);
+  run();
+})();
+</script>
 </body>
 </html>
