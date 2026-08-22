@@ -62,7 +62,7 @@
   .standfirst{font-size:1.12rem;color:var(--sand);max-width:34em;margin:0;opacity:.92}
 
   /* ---------- sections ---------- */
-  section{padding:52px 0}
+  section.wrap{padding-top:52px;padding-bottom:52px}
   section + section{border-top:1px solid var(--seam)}
   h2{
     font-family:'JetBrains Mono',ui-monospace,monospace;
@@ -73,17 +73,16 @@
   p:last-child{margin-bottom:0}
 
   /* ---------- page nav ---------- */
-  .navrow{
+  nav.pagenav{
     display:flex;justify-content:space-between;align-items:baseline;
-    margin:0 0 22px;
-  }
-  .navrow h2{margin:0}
-  .navrow a{
+    padding-top:18px;padding-bottom:18px;
+    border-bottom:1px solid var(--seam);
     font-family:'JetBrains Mono',ui-monospace,monospace;
     font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;
-    color:var(--dust);border-bottom:0;
   }
-  .navrow a:hover{color:var(--ember)}
+  nav.pagenav a{color:var(--dust);border-bottom:0}
+  nav.pagenav a:hover{color:var(--ember)}
+  nav.pagenav [aria-current]{color:var(--sand)}
 
   /* ---------- debate tree ---------- */
   .demo{background:var(--ledge);border:1px solid var(--seam);border-radius:3px;padding:22px}
@@ -268,11 +267,12 @@
   ul.plain li{padding:9px 0;border-bottom:1px solid var(--seam)}
   ul.plain li:last-child{border-bottom:0}
 
-  footer{padding:36px 0 60px;color:var(--dust);font-size:.88rem}
+  footer.wrap{padding-top:36px;padding-bottom:60px}
+  footer{color:var(--dust);font-size:.88rem}
 
   @media (max-width:560px){
     body{font-size:16px}
-    section{padding:40px 0}
+    section.wrap{padding-top:40px;padding-bottom:40px}
     .hero-inner{padding-bottom:36px}
   }
   @media (prefers-reduced-motion:reduce){
@@ -294,11 +294,13 @@
 
 <main>
 
+<nav class="wrap pagenav">
+  <span aria-current="page">Work</span>
+  <a href="personal.html">Personal</a>
+</nav>
+
 <section class="wrap">
-  <div class="navrow">
-    <h2>About</h2>
-    <a href="sweets.html">Personal</a>
-  </div>
+  <h2>About</h2>
   <p>I'm a research scientist on the Amplified Oversight team at Google DeepMind. Before that I was on the alignment team at the UK AI Security Institute. I work at both ends of the problem: proving what oversight protocols can and can't guarantee, and running the experiments that test whether those guarantees survive contact with real models.</p>
   <p>I did my PhD at Leiden with Vedran Dunjko, on quantum complexity theory and quantum machine learning. My favourite result from that period is a proof that if classical computers can compute every function quantum computers can, the polynomial hierarchy collapses to its second level, the tightest collapse of this kind anyone has shown.</p>
   <p>Alongside the PhD I worked on interpretability with Jan Kirchner. I did my MATS with Beth Barnes, on the first dangerous-capability evaluations for language models — the work that grew into <a href="https://metr.org/">METR</a>.</p>

@@ -22,13 +22,26 @@ a:hover{border-bottom-color:var(--ember)}
 :focus-visible{outline:2px solid var(--ember);outline-offset:3px}
 
 nav{display:flex;justify-content:space-between;align-items:baseline;
-  padding:28px 0 0;font-family:'JetBrains Mono',monospace;font-size:12px;
+  padding:18px 0;border-bottom:1px solid var(--seam);
+  font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;
   letter-spacing:.14em;text-transform:uppercase}
 nav a{color:var(--dust);border:0}
 nav a:hover{color:var(--ember)}
-nav span{color:var(--key)}
+nav span{color:var(--sand)}
 
-header{padding:44px 0 52px}
+header.hero{position:relative;min-height:min(42vh,340px);
+  display:flex;align-items:flex-end;
+  background:var(--ledge) url('photos/header2.jpg') center 12% / cover no-repeat}
+header.hero::after{content:'';position:absolute;inset:0;
+  background:linear-gradient(to bottom,rgba(23,19,14,.30) 0%,rgba(23,19,14,.62) 55%,var(--rock) 100%)}
+.hero-inner{position:relative;z-index:1;width:100%;padding-bottom:38px}
+.hero-inner h1{margin:0}
+
+.intro{padding:40px 0 52px}
+.backlink{padding:0 0 30px;font-family:'JetBrains Mono',monospace;font-size:12px;
+  letter-spacing:.14em;text-transform:uppercase}
+.backlink a{color:var(--dust);border:0}
+.backlink a:hover{color:var(--ember)}
 h1{font-family:'Fraunces',Georgia,serif;font-weight:600;letter-spacing:-.015em;
   line-height:1.02;font-size:clamp(2.6rem,7vw,4.1rem);margin:0 0 22px}
 .lede{color:var(--dust);margin:0 0 16px;max-width:54ch}
@@ -76,18 +89,25 @@ footer{padding:52px 0 72px;border-top:1px solid var(--seam);color:var(--key);
   font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;
   text-transform:uppercase}
 @media (max-width:520px){
-  .readout div{flex-direction:column;gap:2px} .readout dt{flex:none}
+  .readout div{flex-direction:column;gap:2px} .readout dt{flex:none;align-self:start}
 }
 @media (prefers-reduced-motion:reduce){*{transition-duration:0s!important}}
-</style></head><body><div class="wrap">
+</style></head><body>
+
+<header class="hero">
+  <div class="hero-inner wrap">
+    <h1>A chocolate habit, measured</h1>
+  </div>
+</header>
+
+<div class="wrap">
 
 <nav>
-  <a href="index.html">About</a>
-  <span aria-current="page">Personal</span>
+  <a href="index.html">Work</a>
+  <a href="personal.html">Personal</a>
 </nav>
 
-<header>
-  <h1>A chocolate habit, measured</h1>
+<div class="intro">
   <p class="lede">For the last two and a half years I've kept a record of everything sweet I ate.
   I attempted to be accurate, but
   sometimes I have just had to give up and vibe it, a day of conference
@@ -95,7 +115,7 @@ footer{padding:52px 0 72px;border-top:1px solid var(--seam);color:var(--key);
   <p class="lede">I had Claude generate graphs and extrapolations from my data. The
   results are below, with some lovely editorial work from yours truly.</p>
 
-  <div class="readout">
+  <dl class="readout">
     <div><dt>Period covered</dt><dd>19 Feb 2024 &ndash; 22 Aug 2026</dd></div>
     <div><dt>Recorded days</dt><dd>774 <s>84% of the span</s></dd></div>
     <div><dt>Days with chocolate</dt><dd>575 <s>74%</s></dd></div>
@@ -104,8 +124,8 @@ footer{padding:52px 0 72px;border-top:1px solid var(--seam);color:var(--key);
     <div><dt>Estimated sugar</dt><dd>32.0 kg <s>41 g/day</s></dd></div>
     <div><dt>Median day</dt><dd>90 g <s>mean 103 g</s></dd></div>
     <div><dt>Longest choc streak</dt><dd>39 days <s>longest gap 8</s></dd></div>
-  </div>
-</header>
+  </dl>
+</div>
 
 <section><p class="eyebrow">01 / The habit</p>
       <figure>
@@ -250,6 +270,8 @@ footer{padding:52px 0 72px;border-top:1px solid var(--seam);color:var(--key);
     </div>
   </details>
 </section>
+
+<p class="backlink"><a href="personal.html">&larr; Personal projects</a></p>
 
 <footer>&copy; 2026 Simon C. Marshall</footer>
 

@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Personal - Simon C. Marshall</title>
+<meta name="description" content="Personal projects — things I make outside work.">
+<meta property="og:title" content="Simon C. Marshall - Personal">
+<meta property="og:description" content="Personal projects — things I make outside work.">
+<meta property="og:image" content="photos/header2.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Archivo:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --rock:#17130E;
+    --ledge:#201A13;
+    --seam:#332618;
+    --ember:#E8862A;
+    --sand:#F0E2CC;
+    --dust:#B39B7C;
+    --key:#7C6950;
+    --inset:#14100C;
+    --measure:660px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:var(--rock);
+    color:var(--sand);
+    font-family:'Archivo',system-ui,sans-serif;
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--ember);text-decoration:none;border-bottom:1px solid rgba(232,134,42,.35)}
+  a:hover{border-bottom-color:var(--ember)}
+  :focus-visible{outline:2px solid var(--ember);outline-offset:3px}
+  .wrap{max-width:var(--measure);margin:0 auto;padding:0 24px}
+
+  /* ---------- hero ---------- */
+  header.hero{
+    position:relative;
+    min-height:min(74vh,560px);
+    display:flex;align-items:flex-end;
+    background:var(--ledge) url('photos/header2.jpg') center 40% / cover no-repeat;
+  }
+  header.hero::after{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(to bottom,rgba(23,19,14,.30) 0%,rgba(23,19,14,.62) 55%,var(--rock) 100%);
+  }
+  .hero-inner{position:relative;z-index:1;width:100%;padding-bottom:52px}
+  .eyebrow{
+    font-family:'JetBrains Mono',ui-monospace,monospace;
+    font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--ember);margin:0 0 14px;
+  }
+  h1{
+    font-family:'Fraunces',Georgia,serif;
+    font-weight:600;font-size:clamp(2.6rem,7vw,4.1rem);
+    line-height:1.02;margin:0 0 16px;letter-spacing:-.015em;
+  }
+  .standfirst{font-size:1.12rem;color:var(--sand);max-width:34em;margin:0;opacity:.92}
+
+  /* ---------- sections ---------- */
+  section.wrap{padding-top:52px;padding-bottom:52px}
+  section + section{border-top:1px solid var(--seam)}
+  h2{
+    font-family:'JetBrains Mono',ui-monospace,monospace;
+    font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--dust);margin:0 0 22px;
+  }
+  p{margin:0 0 18px}
+  p:last-child{margin-bottom:0}
+
+  /* ---------- page nav ---------- */
+  nav.pagenav{
+    display:flex;justify-content:space-between;align-items:baseline;
+    padding-top:18px;padding-bottom:18px;
+    border-bottom:1px solid var(--seam);
+    font-family:'JetBrains Mono',ui-monospace,monospace;
+    font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;
+  }
+  nav.pagenav a{color:var(--dust);border-bottom:0}
+  nav.pagenav a:hover{color:var(--ember)}
+  nav.pagenav [aria-current]{color:var(--sand)}
+
+  /* ---------- project items ---------- */
+  .item{padding:20px 0;border-bottom:1px solid var(--seam)}
+  .item:last-child{border-bottom:0}
+  .item h3{
+    font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:1.16rem;
+    line-height:1.35;margin:0 0 6px;
+  }
+  .meta{
+    font-family:'JetBrains Mono',ui-monospace,monospace;
+    font-size:11.5px;letter-spacing:.05em;color:var(--dust);margin:0 0 10px;
+  }
+  details summary{
+    list-style:none;cursor:pointer;display:inline-block;
+    font-family:'JetBrains Mono',ui-monospace,monospace;
+    font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ember);
+  }
+  details summary::-webkit-details-marker{display:none}
+  details summary::before{content:'+ ';}
+  details[open] summary::before{content:'– ';}
+  details p{margin:12px 0 0;color:var(--dust);font-size:.96rem}
+  .item details{display:block}
+  .item details + details{margin-top:9px}
+  .discs{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:2px}
+  .discs > details{margin-top:0!important}
+  .discs > details[open]{flex:1 0 100%}
+
+  /* ---------- readout ---------- */
+  .readout{background:var(--inset);border:1px solid var(--seam);border-radius:3px;
+    padding:6px 0;margin:18px 0}
+  .readout div{display:flex;gap:16px;padding:7px 18px;
+    font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px}
+  .readout dt{flex:0 0 176px;color:var(--key);margin:0;letter-spacing:.06em;
+    text-transform:uppercase;font-size:10.5px;align-self:center}
+  .readout dd{margin:0;color:var(--sand)}
+  .readout dd s{text-decoration:none;color:var(--key)}
+
+  /* ---------- paired disclosure boxes ---------- */
+  .pair{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:14px;align-items:start}
+  .box{
+    border:1px solid var(--seam);border-radius:3px;
+    background:var(--ledge);padding:15px 18px;
+  }
+  .box[open]{grid-column:1 / -1}
+  .box > summary{
+    font-family:'JetBrains Mono',ui-monospace,monospace;
+    font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--dust);
+  }
+  .box > summary:hover{color:var(--ember)}
+  .box[open] > summary{
+    margin-bottom:14px;padding-bottom:12px;
+    border-bottom:1px solid var(--seam);display:block;
+  }
+  .box p{font-size:1rem}
+
+  footer.wrap{padding-top:36px;padding-bottom:60px}
+  footer{color:var(--dust);font-size:.88rem}
+
+  @media (max-width:560px){
+    body{font-size:16px}
+    section.wrap{padding-top:40px;padding-bottom:40px}
+    .hero-inner{padding-bottom:36px}
+    .pair{grid-template-columns:1fr}
+  }
+  @media (max-width:520px){
+    .readout div{flex-direction:column;gap:2px}
+    .readout dt{flex:none;align-self:start}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *{transition:none!important}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner wrap">
+    <!-- <p class="eyebrow">…</p> -->
+    <h1>Simon C. Marshall</h1>
+    <p class="standfirst">I'm just a boy standing in front of an AGI asking it not to kill him.</p>
+  </div>
+</header>
+
+<main>
+
+<nav class="wrap pagenav">
+  <a href="index.html">Work</a>
+  <span aria-current="page">Personal</span>
+</nav>
+
+<section class="wrap">
+  <h2>About</h2>
+  <p>I'll fill this in soon.</p>
+</section>
+
+<section class="wrap">
+  <h2>Personal projects</h2>
+
+  <div class="item">
+    <h3><a href="sweets.html">A chocolate habit, measured</a></h3>
+    <p class="meta">Self-tracking · Feb 2024 – Aug 2026 · 774 recorded days</p>
+    <p>For two and a half years I wrote down everything sweet I ate, then had Claude
+    build the graphs. It turns out a heavy day predicts a heavier one rather than a
+    lighter one, chocolate and ice cream have real seasons, and changing jobs moved
+    three separate things about the habit at once.</p>
+
+    <dl class="readout">
+      <div><dt>Total mass of sweets</dt><dd>79.4 kg <s>25.5 kg chocolate</s></dd></div>
+      <div><dt>Estimated energy</dt><dd>355,112 kcal <s>459/day</s></dd></div>
+      <div><dt>Estimated sugar</dt><dd>32.0 kg <s>41 g/day</s></dd></div>
+      <div><dt>Longest choc streak</dt><dd>39 days <s>longest gap 8</s></dd></div>
+    </dl>
+
+    <div class="discs">
+    <details><summary>The habit has momentum</summary>
+      <p>The obvious hypothesis is compensation: overdo it, then ease off. The data says
+      the opposite. After a day over 100 g the next day averages 119 g, against an
+      overall mean of 103 g; after a day under 50 g it averages 91 g. Day-to-day
+      correlation is +0.32. Only the staples carry it — chocolate at 0.38 and biscuits
+      at 0.35, against a shuffled baseline of 0.07, while ice cream and event snacks
+      sit at the baseline. Habits carry from one day to the next; occasions do not,
+      which is what makes them occasions.</p>
+    </details>
+    <details><summary>Changing jobs broke it</summary>
+      <p>I split the record at February 2025, when the PhD ended, and again at the move
+      to Britain that June. Daily mass drops from 117 g through the PhD to about 90
+      and stays there. The weekend effect — 17 g above weekdays during the PhD —
+      disappears. And the momentum above, +0.40 during the PhD with an interval clear
+      of the noise floor, falls to +0.08. The mix moved too: sticky toffee pudding and
+      Gü pots appear where lava cake and mochi used to be, which is roughly what
+      emigrating to Britain should look like.</p>
+    </details>
+    <details><summary>How a vibe became a number</summary>
+      <p>I attempted to be accurate, but sometimes I have just had to give up and vibe
+      it — a day of conference snacks will defeat any data collector. Bare entries were
+      given standard portions, explicit weights carry ±7%, bare named items ±20–30%,
+      and vague entries ±35–45%. Nineteen date headers needed repairing. The full
+      accounting is at the bottom of the piece.</p>
+    </details>
+    </div>
+  </div>
+
+</section>
+
+<section class="wrap">
+  <div class="pair">
+
+    <details class="box">
+      <summary>Contact</summary>
+      <p><a href="mailto:s.c.marshall98@gmail.com">s.c.marshall98@gmail.com</a></p>
+    </details>
+
+  </div>
+</section>
+
+</main>
+
+<footer class="wrap">© 2026 Simon C. Marshall</footer>
+
+</body>
+</html>
