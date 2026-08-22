@@ -81,7 +81,12 @@
   }
   nav.pagenav a{color:var(--dust);border-bottom:0}
   nav.pagenav a:hover{color:var(--ember)}
-  nav.pagenav [aria-current]{color:var(--sand)}
+  nav.pagenav [aria-current]{
+    color:var(--sand);
+    padding:5px 10px;margin:-5px -10px;
+    border:1px solid var(--seam);border-radius:2px;
+    background:var(--ledge);
+  }
 
   /* ---------- debate tree ---------- */
   .demo{background:var(--ledge);border:1px solid var(--seam);border-radius:3px;padding:22px}

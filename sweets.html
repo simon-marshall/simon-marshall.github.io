@@ -28,6 +28,8 @@ nav{display:flex;justify-content:space-between;align-items:baseline;
 nav a{color:var(--dust);border:0}
 nav a:hover{color:var(--ember)}
 nav span{color:var(--sand)}
+nav [aria-current]{color:var(--sand);padding:5px 10px;margin:-5px -10px;
+  border:1px solid var(--seam);border-radius:2px;background:var(--ledge)}
 
 header.hero{position:relative;min-height:min(42vh,340px);
   display:flex;align-items:flex-end;
@@ -99,7 +101,7 @@ footer{padding:52px 0 72px;border-top:1px solid var(--seam);color:var(--key);
     <h1>A chocolate habit, measured</h1>
     <nav>
       <a href="index.html">Work</a>
-      <a href="personal.html">Personal</a>
+      <a href="personal.html" aria-current="true">Personal</a>
     </nav>
   </div>
 </header>
