@@ -106,11 +106,14 @@
   details summary::before{content:'+ ';}
   details[open] summary::before{content:'– ';}
   details p{margin:12px 0 0;color:var(--dust);font-size:.96rem}
-  .item details{display:block}
-  .item details + details{margin-top:9px}
-  .discs{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:2px}
-  .discs > details{margin-top:0!important}
-  .discs > details[open]{flex:1 0 100%}
+  .more{
+    display:inline-block;
+    font-family:'JetBrains Mono',ui-monospace,monospace;
+    font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--ember);border-bottom:0;
+  }
+  .more::before{content:'+ '}
+  .more:hover{border-bottom:1px solid var(--ember)}
 
   /* ---------- readout ---------- */
   .readout{background:var(--inset);border:1px solid var(--seam);border-radius:3px;
@@ -197,33 +200,7 @@
       <div><dt>Longest choc streak</dt><dd>39 days <s>longest gap 8</s></dd></div>
     </dl>
 
-    <div class="discs">
-    <details><summary>The habit has momentum</summary>
-      <p>The obvious hypothesis is compensation: overdo it, then ease off. The data says
-      the opposite. After a day over 100 g the next day averages 119 g, against an
-      overall mean of 103 g; after a day under 50 g it averages 91 g. Day-to-day
-      correlation is +0.32. Only the staples carry it — chocolate at 0.38 and biscuits
-      at 0.35, against a shuffled baseline of 0.07, while ice cream and event snacks
-      sit at the baseline. Habits carry from one day to the next; occasions do not,
-      which is what makes them occasions.</p>
-    </details>
-    <details><summary>Changing jobs broke it</summary>
-      <p>I split the record at February 2025, when the PhD ended, and again at the move
-      to Britain that June. Daily mass drops from 117 g through the PhD to about 90
-      and stays there. The weekend effect — 17 g above weekdays during the PhD —
-      disappears. And the momentum above, +0.40 during the PhD with an interval clear
-      of the noise floor, falls to +0.08. The mix moved too: sticky toffee pudding and
-      Gü pots appear where lava cake and mochi used to be, which is roughly what
-      emigrating to Britain should look like.</p>
-    </details>
-    <details><summary>How a vibe became a number</summary>
-      <p>I attempted to be accurate, but sometimes I have just had to give up and vibe
-      it — a day of conference snacks will defeat any data collector. Bare entries were
-      given standard portions, explicit weights carry ±7%, bare named items ±20–30%,
-      and vague entries ±35–45%. Nineteen date headers needed repairing. The full
-      accounting is at the bottom of the piece.</p>
-    </details>
-    </div>
+    <p><a class="more" href="sweets.html">Read the report</a></p>
   </div>
 
 </section>
