@@ -72,6 +72,19 @@
   p{margin:0 0 18px}
   p:last-child{margin-bottom:0}
 
+  /* ---------- page nav ---------- */
+  .navrow{
+    display:flex;justify-content:space-between;align-items:baseline;
+    margin:0 0 22px;
+  }
+  .navrow h2{margin:0}
+  .navrow a{
+    font-family:'JetBrains Mono',ui-monospace,monospace;
+    font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--dust);border-bottom:0;
+  }
+  .navrow a:hover{color:var(--ember)}
+
   /* ---------- debate tree ---------- */
   .demo{background:var(--ledge);border:1px solid var(--seam);border-radius:3px;padding:22px}
   .demo svg{width:100%;height:auto;display:block}
@@ -282,7 +295,10 @@
 <main>
 
 <section class="wrap">
-  <h2>About</h2>
+  <div class="navrow">
+    <h2>About</h2>
+    <a href="sweets.html">Personal</a>
+  </div>
   <p>I'm a research scientist on the Amplified Oversight team at Google DeepMind. Before that I was on the alignment team at the UK AI Security Institute. I work at both ends of the problem: proving what oversight protocols can and can't guarantee, and running the experiments that test whether those guarantees survive contact with real models.</p>
   <p>I did my PhD at Leiden with Vedran Dunjko, on quantum complexity theory and quantum machine learning. My favourite result from that period is a proof that if classical computers can compute every function quantum computers can, the polynomial hierarchy collapses to its second level, the tightest collapse of this kind anyone has shown.</p>
   <p>Alongside the PhD I worked on interpretability with Jan Kirchner. I did my MATS with Beth Barnes, on the first dangerous-capability evaluations for language models — the work that grew into <a href="https://metr.org/">METR</a>.</p>
@@ -550,6 +566,9 @@ Demo panel  #14100C inset, mono readout rows with a fixed-width key
             column in #7C6950 and values in --sand.
 Buttons     mono uppercase 12px. Primary: --ember fill, --rock text.
             Ghost: transparent, --seam border, --dust text.
+Page nav    mono uppercase 12px in --dust, hovering to --ember, set on
+            one baseline row with the section heading. Never amber at
+            rest — the accent belongs to the content, not the chrome.
 
 ## Motion
 Staged reveals on a timeline, roughly 400ms between beats — slow enough
