@@ -48,7 +48,7 @@
     content:'';position:absolute;inset:0;
     background:linear-gradient(to bottom,rgba(23,19,14,.30) 0%,rgba(23,19,14,.62) 55%,var(--rock) 100%);
   }
-  .hero-inner{position:relative;z-index:1;width:100%;padding-bottom:52px}
+  .hero-inner{position:relative;z-index:1;width:100%;padding-bottom:40px}
   .eyebrow{
     font-family:'JetBrains Mono',ui-monospace,monospace;
     font-size:12px;letter-spacing:.14em;text-transform:uppercase;
@@ -75,8 +75,7 @@
   /* ---------- page nav ---------- */
   nav.pagenav{
     display:flex;justify-content:space-between;align-items:baseline;
-    padding-top:18px;padding-bottom:18px;
-    border-bottom:1px solid var(--seam);
+    margin-top:30px;
     font-family:'JetBrains Mono',ui-monospace,monospace;
     font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;
   }
@@ -273,7 +272,7 @@
   @media (max-width:560px){
     body{font-size:16px}
     section.wrap{padding-top:40px;padding-bottom:40px}
-    .hero-inner{padding-bottom:36px}
+    .hero-inner{padding-bottom:30px}
   }
   @media (prefers-reduced-motion:reduce){
     html{scroll-behavior:auto}
@@ -289,15 +288,14 @@
     <p class="eyebrow">Google DeepMind · Amplified Oversight</p>
     <h1>Simon C. Marshall</h1>
     <p class="standfirst">I work on scalable oversight — mostly AI safety via debate, from proofs about what protocols can guarantee to experiments on frontier models.</p>
+    <nav class="pagenav">
+      <span aria-current="page">Work</span>
+      <a href="personal.html">Personal</a>
+    </nav>
   </div>
 </header>
 
 <main>
-
-<nav class="wrap pagenav">
-  <span aria-current="page">Work</span>
-  <a href="personal.html">Personal</a>
-</nav>
 
 <section class="wrap">
   <h2>About</h2>
