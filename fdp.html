@@ -1,0 +1,748 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Food &amp; Training</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Archivo:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --rock:#12160F;
+    --ledge:#1A2014;
+    --seam:#2E3A24;
+    --fern:#93B85A;
+    --sand:#EBE7D6;
+    --dust:#A6AC8C;
+    --key:#7A8264;
+    --inset:#0F130D;
+    --measure:660px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:var(--rock);
+    color:var(--sand);
+    font-family:'Archivo',system-ui,sans-serif;
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--fern);text-decoration:none;border-bottom:1px solid rgba(147,184,90,.35)}
+  a:hover{border-bottom-color:var(--fern)}
+  :focus-visible{outline:2px solid var(--fern);outline-offset:3px}
+  .wrap{max-width:var(--measure);margin:0 auto;padding:0 24px}
+
+  /* ---------- hero ---------- */
+  header.hero{
+    position:relative;
+    min-height:min(66vh,500px);
+    display:flex;align-items:flex-end;
+    background:var(--ledge) url('photos/forest.jpg') center bottom / cover no-repeat;
+  }
+  header.hero::after{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(to bottom,rgba(18,22,15,.24) 0%,rgba(18,22,15,.66) 55%,var(--rock) 100%);
+  }
+  .hero-inner{position:relative;z-index:1;width:100%;padding-bottom:40px}
+  h1{
+    font-family:'Fraunces',Georgia,serif;
+    font-weight:600;font-size:clamp(2.4rem,6.4vw,3.7rem);
+    line-height:1.02;margin:0 0 16px;letter-spacing:-.015em;
+  }
+  .standfirst{font-size:1.12rem;color:var(--sand);max-width:34em;margin:0;opacity:.92}
+
+  /* ---------- jump nav ---------- */
+  nav.pagenav{
+    display:flex;flex-wrap:wrap;gap:8px 20px;
+    margin-top:30px;
+    font-family:'JetBrains Mono',ui-monospace,monospace;
+    font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;
+  }
+  nav.pagenav a{color:var(--dust);border-bottom:0}
+  nav.pagenav a:hover{color:var(--fern)}
+
+  /* ---------- sections ---------- */
+  section.wrap{padding-top:52px;padding-bottom:52px}
+  section + section{border-top:1px solid var(--seam)}
+  h2{
+    font-family:'JetBrains Mono',ui-monospace,monospace;
+    font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--dust);margin:0 0 22px;
+  }
+  h3{
+    font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:1.16rem;
+    line-height:1.35;margin:34px 0 6px;
+  }
+  p{margin:0 0 18px}
+  p:last-child{margin-bottom:0}
+  .note{color:var(--dust);font-size:.96rem}
+  .ing{color:var(--dust);font-size:.96rem;margin:0 0 14px}
+
+  /* ---------- lists ---------- */
+  ul{margin:0 0 18px;padding-left:20px}
+  li{margin:0 0 7px}
+  ul.plain{list-style:none;padding-left:0}
+  ul.plain li{padding:8px 0;border-bottom:1px solid var(--seam);margin:0}
+  ul.plain li:last-child{border-bottom:0}
+  ul.plain b{
+    display:block;
+    font-family:'JetBrains Mono',ui-monospace,monospace;
+    font-size:10.5px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--key);margin-bottom:2px;
+  }
+  ul.check{list-style:none;padding-left:0}
+  ul.check li{display:flex;gap:12px;align-items:flex-start;padding:6px 0;margin:0}
+  ul.check input{
+    appearance:none;-webkit-appearance:none;flex:none;cursor:pointer;
+    width:15px;height:15px;margin:6px 0 0;position:relative;
+    background:var(--inset);border:1px solid var(--key);border-radius:2px;
+  }
+  ul.check input:checked{background:var(--fern);border-color:var(--fern)}
+  ul.check input:checked::after{
+    content:'';position:absolute;left:4px;top:1px;
+    width:3px;height:7px;border:solid var(--rock);border-width:0 2px 2px 0;
+    transform:rotate(45deg);
+  }
+
+  /* ---------- tables ---------- */
+  .scroll{
+    overflow-x:auto;margin:16px 0;
+    background:var(--inset);border:1px solid var(--seam);border-radius:3px;
+    -webkit-overflow-scrolling:touch;
+  }
+  table{border-collapse:collapse;width:100%;
+    font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px}
+  th{
+    text-align:left;font-weight:500;white-space:nowrap;
+    font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--key);padding:10px 16px;border-bottom:1px solid var(--seam);
+  }
+  td{padding:8px 16px;color:var(--sand);white-space:nowrap;
+    border-bottom:1px solid rgba(46,58,36,.6)}
+  tr:last-child td{border-bottom:0}
+  th:first-child,td:first-child{color:var(--dust)}
+  .week td{white-space:normal;min-width:118px}
+
+  /* ---------- recipe disclosures ---------- */
+  details.recipe{border-bottom:1px solid var(--seam)}
+  details.recipe:last-of-type{border-bottom:0}
+  details.recipe > summary{
+    list-style:none;cursor:pointer;padding:13px 0;
+    font-family:'Fraunces',Georgia,serif;font-size:1.05rem;color:var(--sand);
+  }
+  details.recipe > summary::-webkit-details-marker{display:none}
+  details.recipe > summary::before{
+    content:'+';color:var(--fern);
+    font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;
+    display:inline-block;width:18px;
+  }
+  details.recipe[open] > summary::before{content:'\2013'}
+  details.recipe > summary:hover{color:var(--fern)}
+  .recipe-body{padding:0 0 22px 18px}
+
+  /* ---------- boxes ---------- */
+  .box{
+    border:1px solid var(--seam);border-radius:3px;
+    background:var(--ledge);padding:16px 20px;margin:18px 0;
+  }
+  .box h4{
+    font-family:'JetBrains Mono',ui-monospace,monospace;
+    font-size:10.5px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--key);margin:0 0 10px;
+  }
+  .box ul{margin-bottom:0}
+
+  footer.wrap{padding-top:36px;padding-bottom:60px}
+  footer{color:var(--key);font-size:.88rem}
+
+  @media (max-width:560px){
+    body{font-size:16px}
+    section.wrap{padding-top:40px;padding-bottom:40px}
+    .hero-inner{padding-bottom:30px}
+    .recipe-body{padding-left:0}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *{transition:none!important}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner wrap">
+    <h1>Food &amp; Training</h1>
+    <p class="standfirst">Three weeks of dinners, a list of snacks, and three sessions a week in the gym.</p>
+    <nav class="pagenav">
+      <a href="#breakfast">Breakfast</a>
+      <a href="#meals">Meals</a>
+      <a href="#snacks">Snacks</a>
+      <a href="#training">Training</a>
+      <a href="#prep">Prep</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ============================ BREAKFAST ============================ -->
+<section class="wrap" id="breakfast">
+  <h2>Breakfast</h2>
+  <p class="note">Five options. Rotate whenever one gets boring.</p>
+
+  <ul class="plain">
+    <li><b>Skyr bowl</b>150 g skyr or 0% Greek yogurt · 1 banana · 80 g berries · 20 g oats or granola · 10 g walnuts</li>
+    <li><b>Cereal, upgraded</b>2 Weetabix or 40 g muesli · 200 ml soy milk · 1 banana · 100 g skyr alongside</li>
+    <li><b>Eggs on toast</b>3 eggs scrambled · 1 slice sourdough · roasted cherry tomatoes · 1 tsp olive oil</li>
+    <li><b>Overnight oats</b>Per jar: 40 g oats · 150 ml soy milk · 100 g skyr · 1 tbsp chia · 1 tsp cocoa · ½ banana · honey. Make three jars at the weekend.</li>
+    <li><b>Ricotta toast</b>80 g ricotta · 1 slice sourdough · 1 tsp honey · sliced pear or fig · cinnamon</li>
+  </ul>
+</section>
+
+<!-- ============================ MEALS ============================ -->
+<section class="wrap" id="meals">
+  <h2>Meals</h2>
+
+  <div class="box">
+    <h4>Standing rules</h4>
+    <ul>
+      <li>Olive oil: 1 level tablespoon per portion.</li>
+      <li>Dry pasta: 75 g per portion.</li>
+      <li>Vegetables: two fists per meal minimum. Add more freely.</li>
+      <li>Parmesan: 15 g per portion. Real parmesan, and worth it.</li>
+      <li>Salt, pepper, garlic, herbs, chilli, lemon, vinegar — unlimited, and used aggressively.</li>
+    </ul>
+  </div>
+
+  <p class="note">Every recipe is written for one portion. The columns scale it:</p>
+
+  <div class="scroll">
+  <table>
+    <tr><th>Column</th><th>Meaning</th><th>Multiply by</th></tr>
+    <tr><td>D</td><td>Dinner tonight, alone</td><td>×1</td></tr>
+    <tr><td>D+L</td><td>Dinner tonight + lunch tomorrow</td><td>×2</td></tr>
+    <tr><td>D2+L</td><td>Dinner for two + lunch tomorrow</td><td>×3.5</td></tr>
+  </table>
+  </div>
+
+  <p class="note">For whole items — eggs, aubergines, tins — round up rather than down.</p>
+
+  <!-- ---------------- WEEK 1 ---------------- -->
+  <h3>Week 1</h3>
+
+  <div class="scroll">
+  <table class="week">
+    <tr><th>Day</th><th>Dinner</th><th>Lunch next day</th></tr>
+    <tr><td>Mon</td><td>Pasta e ceci</td><td>Pasta e ceci</td></tr>
+    <tr><td>Tue</td><td>Frittata with courgette, potato and onion</td><td>Frittata, cold</td></tr>
+    <tr><td>Wed</td><td>Chana masala + rice <i>(cook double)</i></td><td>Chana masala</td></tr>
+    <tr><td>Thu</td><td>Pasta al pomodoro with white beans</td><td>Chana masala, second portion</td></tr>
+    <tr><td>Fri</td><td>Homemade pizza</td><td>—</td></tr>
+    <tr><td>Sat</td><td>Melanzane alla parmigiana</td><td>Melanzane</td></tr>
+    <tr><td>Sun</td><td>Lentil ragù <i>(double batch, freeze half)</i></td><td>Lentil ragù</td></tr>
+  </table>
+  </div>
+
+  <details class="recipe">
+    <summary>Monday — Pasta e ceci</summary>
+    <div class="recipe-body">
+      <p class="ing">75 g ditalini or broken spaghetti · 120 g drained chickpeas (½ tin) · 1 tbsp olive oil · 1 garlic clove · 1 sprig rosemary · 1 tbsp tomato purée · 300 ml vegetable stock · 15 g parmesan · pinch of chilli</p>
+      <div class="scroll">
+      <table>
+        <tr><th></th><th>D</th><th>D+L</th><th>D2+L</th></tr>
+        <tr><td>Pasta</td><td>75 g</td><td>150 g</td><td>260 g</td></tr>
+        <tr><td>Chickpeas</td><td>½ tin</td><td>1 tin</td><td>1¾ tins</td></tr>
+        <tr><td>Stock</td><td>300 ml</td><td>600 ml</td><td>1 L</td></tr>
+        <tr><td>Olive oil</td><td>1 tbsp</td><td>2 tbsp</td><td>3½ tbsp</td></tr>
+      </table>
+      </div>
+      <p>Warm the oil with sliced garlic, rosemary and chilli — gently, don't colour the garlic. Tomato purée in, cook one minute. Chickpeas and stock, simmer 10 minutes. Blend about a third with a stick blender; this is what makes it creamy without cream. Add the pasta and cook it in the soup, loosening with water as it tightens. Rosemary out, parmesan and a thread of oil in.</p>
+      <p class="note">Reheats beautifully but thickens overnight — loosen with a splash of water.</p>
+    </div>
+  </details>
+
+  <details class="recipe">
+    <summary>Tuesday — Frittata with courgette, potato and onion</summary>
+    <div class="recipe-body">
+      <p class="ing">3 eggs · 100 g courgette, sliced · 80 g potato, thinly sliced · ¼ onion · 15 g parmesan · 2 tsp olive oil · tomato salad alongside (150 g tomatoes, basil, 1 tsp oil, salt)</p>
+      <div class="scroll">
+      <table>
+        <tr><th></th><th>D</th><th>D+L</th><th>D2+L</th></tr>
+        <tr><td>Eggs</td><td>3</td><td>6</td><td>10</td></tr>
+        <tr><td>Courgette</td><td>100 g</td><td>200 g</td><td>350 g</td></tr>
+        <tr><td>Potato</td><td>80 g</td><td>160 g</td><td>280 g</td></tr>
+        <tr><td>Pan</td><td>20 cm</td><td>24 cm</td><td>28 cm</td></tr>
+      </table>
+      </div>
+      <p>Soften onion and potato in the oil with the lid on, 10 minutes. Courgette, 5 minutes more, salt well. Beat the eggs with the parmesan, pour in, cook on low until the edges set, then finish under the grill for 3–4 minutes. Rest before cutting.</p>
+      <p class="note">Cold frittata in a sandwich the next day is better than hot frittata.</p>
+    </div>
+  </details>
+
+  <details class="recipe">
+    <summary>Wednesday — Chana masala</summary>
+    <div class="recipe-body">
+      <p class="ing">200 g drained chickpeas (¾ tin) · 60 g basmati · ½ onion · 1 garlic clove · thumb of ginger · 200 g chopped tomatoes · 1 tbsp oil · 1 tsp cumin seeds · 1 tsp ground coriander · ½ tsp turmeric · ½ tsp garam masala · chilli · 60 g yogurt to serve</p>
+      <div class="scroll">
+      <table>
+        <tr><th></th><th>D</th><th>D+L</th><th>D2+L</th></tr>
+        <tr><td>Chickpeas</td><td>¾ tin</td><td>1½ tins</td><td>2½ tins</td></tr>
+        <tr><td>Rice (dry)</td><td>60 g</td><td>120 g</td><td>210 g</td></tr>
+        <tr><td>Chopped tomatoes</td><td>½ tin</td><td>1 tin</td><td>1¾ tins</td></tr>
+      </table>
+      </div>
+      <p>Cumin seeds into hot oil until they pop. Onion until properly golden — this is the step everyone rushes and it is where the flavour lives. Garlic, ginger, dry spices, 30 seconds. Tomatoes, cooked down 10 minutes until the oil separates out. Chickpeas and a splash of water, simmer 15 minutes, crushing a few against the pan. Garam masala at the very end. Yogurt on top.</p>
+      <p class="note">Cook the D+L quantity — Thursday's lunch is the second portion.</p>
+    </div>
+  </details>
+
+  <details class="recipe">
+    <summary>Thursday — Pasta al pomodoro with white beans</summary>
+    <div class="recipe-body">
+      <p class="ing">75 g pasta · 150 g drained cannellini · 200 g passata · 1 garlic clove · 1 tbsp olive oil · basil · 15 g parmesan</p>
+      <div class="scroll">
+      <table>
+        <tr><th></th><th>D</th><th>D+L</th><th>D2+L</th></tr>
+        <tr><td>Pasta</td><td>75 g</td><td>150 g</td><td>260 g</td></tr>
+        <tr><td>Cannellini</td><td>½ tin</td><td>1 tin</td><td>1¾ tins</td></tr>
+        <tr><td>Passata</td><td>200 g</td><td>400 g</td><td>700 g</td></tr>
+      </table>
+      </div>
+      <p>Garlic in oil, passata in, simmer 15 minutes with a basil stalk and a pinch of sugar if it needs it. Beans for the last 5 minutes. Toss with the drained pasta and a spoon of pasta water, torn basil, parmesan.</p>
+      <p class="note">Twenty minutes start to finish. This is the emergency dinner.</p>
+    </div>
+  </details>
+
+  <details class="recipe">
+    <summary>Friday — Homemade pizza</summary>
+    <div class="recipe-body">
+      <p class="ing"><b>Per base:</b> 130 g '00' flour · 85 ml water · 2 g dried yeast · 3 g salt · 1 tsp oil<br><b>Per pizza:</b> 80 g passata, raw, with just salt and oil · 80 g fior di latte, drained well and torn · basil</p>
+      <p>Dough in the morning or the night before, risen in the fridge. Oven as hot as it goes with a tray or stone preheating inside. 8–10 minutes.</p>
+      <p class="note">Two bases each if wanted, loaded with vegetables — roasted peppers, courgette, artichokes, olives, rocket after baking.</p>
+    </div>
+  </details>
+
+  <details class="recipe">
+    <summary>Saturday — Melanzane alla parmigiana, baked not fried</summary>
+    <div class="recipe-body">
+      <p class="ing">1 medium aubergine (~250 g) · 250 g passata · 80 g mozzarella · 20 g parmesan · 1 tbsp olive oil · basil · garlic</p>
+      <div class="scroll">
+      <table>
+        <tr><th></th><th>D</th><th>D+L</th><th>D2+L</th></tr>
+        <tr><td>Aubergine</td><td>1</td><td>2</td><td>3–4</td></tr>
+        <tr><td>Passata</td><td>250 g</td><td>500 g</td><td>875 g</td></tr>
+        <tr><td>Mozzarella</td><td>80 g</td><td>160 g</td><td>280 g</td></tr>
+        <tr><td>Dish</td><td>small</td><td>20×20 cm</td><td>25×30 cm</td></tr>
+      </table>
+      </div>
+      <p>Slice the aubergine 1 cm thick, salt for 20 minutes, pat dry. <b>Brush</b> with oil — brush, don't pour — and roast at 220°C for 20–25 minutes until golden. Meanwhile simmer the passata with garlic and basil. Layer sauce, aubergine, mozzarella, parmesan, and repeat. Bake 30 minutes at 180°C. <b>Rest 15 minutes before cutting</b> or it collapses.</p>
+    </div>
+  </details>
+
+  <details class="recipe">
+    <summary>Sunday — Lentil ragù with tagliatelle</summary>
+    <div class="recipe-body">
+      <p class="ing">60 g dry brown or green lentils · 1 small carrot · 1 celery stick · ½ onion · 1 tbsp olive oil · 200 g passata · 1 tbsp tomato purée · bay leaf · splash of red wine · 75 g tagliatelle · 15 g parmesan</p>
+      <div class="scroll">
+      <table>
+        <tr><th></th><th>D</th><th>D+L</th><th>D2+L</th><th>Double batch</th></tr>
+        <tr><td>Lentils</td><td>60 g</td><td>120 g</td><td>210 g</td><td>240 g</td></tr>
+        <tr><td>Passata</td><td>200 g</td><td>400 g</td><td>700 g</td><td>800 g</td></tr>
+        <tr><td>Soffritto</td><td>1×</td><td>2×</td><td>3½×</td><td>4×</td></tr>
+      </table>
+      </div>
+      <p>Soffritto finely chopped, in the oil on low for 12–15 minutes until sweet. Purée, cooked out. Wine, let it evaporate. Lentils, passata, bay, and 500 ml water per two portions. Simmer 35–40 minutes until the lentils are soft and the sauce thick. Season hard at the end.</p>
+      <p class="note">Make the double batch and freeze half in portions — that covers Week 2's Sunday lunch with no work at all.</p>
+    </div>
+  </details>
+
+  <!-- ---------------- WEEK 2 ---------------- -->
+  <h3>Week 2</h3>
+
+  <div class="scroll">
+  <table class="week">
+    <tr><th>Day</th><th>Dinner</th><th>Lunch next day</th></tr>
+    <tr><td>Mon</td><td>Pasta e lenticchie</td><td>Pasta e lenticchie</td></tr>
+    <tr><td>Tue</td><td>Halloumi and roasted vegetable traybake</td><td>Traybake, cold, as a grain salad</td></tr>
+    <tr><td>Wed</td><td>Minestrone <i>(cook double)</i></td><td>Minestrone</td></tr>
+    <tr><td>Thu</td><td>Teriyaki tofu with rice and tenderstem</td><td>Minestrone, second portion</td></tr>
+    <tr><td>Fri</td><td>Gnocchi alla sorrentina</td><td>—</td></tr>
+    <tr><td>Sat</td><td>Spinach and ricotta cannelloni</td><td>Cannelloni</td></tr>
+    <tr><td>Sun</td><td>Shakshuka</td><td>Lentil ragù from the freezer</td></tr>
+  </table>
+  </div>
+
+  <details class="recipe">
+    <summary>Monday — Pasta e lenticchie</summary>
+    <div class="recipe-body">
+      <p class="ing">75 g small pasta · 60 g dry lentils · soffritto (carrot, celery, onion) · 1 tbsp olive oil · 1 tbsp tomato purée · rosemary · 400 ml stock · 15 g parmesan</p>
+      <div class="scroll">
+      <table>
+        <tr><th></th><th>D</th><th>D+L</th><th>D2+L</th></tr>
+        <tr><td>Pasta</td><td>75 g</td><td>150 g</td><td>260 g</td></tr>
+        <tr><td>Lentils</td><td>60 g</td><td>120 g</td><td>210 g</td></tr>
+        <tr><td>Stock</td><td>400 ml</td><td>800 ml</td><td>1.4 L</td></tr>
+      </table>
+      </div>
+      <p>As pasta e ceci, but the lentils go in raw and simmer for 25 minutes before the pasta joins them. Finish with oil and a lot of black pepper.</p>
+    </div>
+  </details>
+
+  <details class="recipe">
+    <summary>Tuesday — Halloumi and roasted vegetable traybake with couscous</summary>
+    <div class="recipe-body">
+      <p class="ing">70 g halloumi · 1 red pepper · 1 small courgette · ½ red onion · 100 g cherry tomatoes · 120 g drained chickpeas · 1 tbsp olive oil · 50 g dry couscous · lemon · oregano</p>
+      <div class="scroll">
+      <table>
+        <tr><th></th><th>D</th><th>D+L</th><th>D2+L</th></tr>
+        <tr><td>Halloumi</td><td>70 g</td><td>140 g</td><td>250 g (1 block)</td></tr>
+        <tr><td>Chickpeas</td><td>½ tin</td><td>1 tin</td><td>1¾ tins</td></tr>
+        <tr><td>Couscous</td><td>50 g</td><td>100 g</td><td>175 g</td></tr>
+        <tr><td>Trays</td><td>1</td><td>1 large</td><td>2</td></tr>
+      </table>
+      </div>
+      <p>Vegetables and chickpeas tossed with the oil and oregano, 220°C for 25 minutes. Cubed halloumi added for the last 10. Couscous covered with an equal volume of boiling stock, 5 minutes, forked through with lemon and parsley.</p>
+    </div>
+  </details>
+
+  <details class="recipe">
+    <summary>Wednesday — Minestrone</summary>
+    <div class="recipe-body">
+      <p class="ing">150 g mixed vegetables (carrot, celery, courgette, green beans, savoy cabbage, potato) · 120 g drained borlotti · 40 g small pasta · 1 tbsp olive oil · parmesan rind · 400 ml stock · basil or pesto to finish</p>
+      <div class="scroll">
+      <table>
+        <tr><th></th><th>D</th><th>D+L</th><th>D2+L</th></tr>
+        <tr><td>Vegetables</td><td>150 g</td><td>300 g</td><td>525 g</td></tr>
+        <tr><td>Borlotti</td><td>½ tin</td><td>1 tin</td><td>1¾ tins</td></tr>
+        <tr><td>Pasta</td><td>40 g</td><td>80 g</td><td>140 g</td></tr>
+      </table>
+      </div>
+      <p>Soffritto base, then the harder vegetables, then stock and the parmesan rind. Simmer 25 minutes. Beans and pasta for the last 10. Blend one ladleful and stir it back in for body. Finish with oil, parmesan and basil.</p>
+      <p class="note">Cook double for Thursday's lunch. Good bread alongside is not optional.</p>
+    </div>
+  </details>
+
+  <details class="recipe">
+    <summary>Thursday — Teriyaki tofu with rice and tenderstem</summary>
+    <div class="recipe-body">
+      <p class="ing">150 g firm tofu, pressed · 60 g rice · 150 g tenderstem broccoli · 2 tsp neutral oil · 1 tsp sesame oil · <b>sauce:</b> 2 tbsp soy, 1 tbsp mirin, 1 tsp honey, garlic, ginger · sesame seeds, spring onion</p>
+      <div class="scroll">
+      <table>
+        <tr><th></th><th>D</th><th>D+L</th><th>D2+L</th></tr>
+        <tr><td>Tofu</td><td>150 g</td><td>300 g (1 block)</td><td>525 g</td></tr>
+        <tr><td>Rice (dry)</td><td>60 g</td><td>120 g</td><td>210 g</td></tr>
+        <tr><td>Broccoli</td><td>150 g</td><td>300 g</td><td>500 g</td></tr>
+      </table>
+      </div>
+      <p>Press the tofu properly — 20 minutes under something heavy. Cube, toss in cornflour, fry until crisp on all sides, remove. Sauce into the pan, bubble one minute until sticky, tofu back in to coat. Broccoli steamed or charred in the same pan.</p>
+      <p class="note">Pressing is the difference between good and sad.</p>
+    </div>
+  </details>
+
+  <details class="recipe">
+    <summary>Friday — Gnocchi alla sorrentina</summary>
+    <div class="recipe-body">
+      <p class="ing">250 g gnocchi (shop-bought is fine) · 200 g passata · 80 g mozzarella · 15 g parmesan · basil · 1 tbsp olive oil · garlic</p>
+      <div class="scroll">
+      <table>
+        <tr><th></th><th>D</th><th>D+L</th><th>D2+L</th></tr>
+        <tr><td>Gnocchi</td><td>250 g</td><td>500 g</td><td>875 g</td></tr>
+        <tr><td>Passata</td><td>200 g</td><td>400 g</td><td>700 g</td></tr>
+        <tr><td>Mozzarella</td><td>80 g</td><td>160 g</td><td>280 g</td></tr>
+      </table>
+      </div>
+      <p>Simple tomato sauce. Boil the gnocchi until they float, straight into the sauce, into a dish with torn mozzarella and parmesan, under a hot grill until blistered.</p>
+    </div>
+  </details>
+
+  <details class="recipe">
+    <summary>Saturday — Spinach and ricotta cannelloni</summary>
+    <div class="recipe-body">
+      <p class="ing">3 cannelloni tubes · 125 g ricotta · 100 g frozen spinach, thawed and <b>squeezed very dry</b> · ¼ beaten egg · nutmeg · 250 g passata · 20 g parmesan</p>
+      <div class="scroll">
+      <table>
+        <tr><th></th><th>D</th><th>D+L</th><th>D2+L</th></tr>
+        <tr><td>Tubes</td><td>3</td><td>6</td><td>11</td></tr>
+        <tr><td>Ricotta</td><td>125 g</td><td>250 g</td><td>440 g</td></tr>
+        <tr><td>Spinach</td><td>100 g</td><td>200 g</td><td>350 g</td></tr>
+        <tr><td>Egg</td><td>—</td><td>1</td><td>2</td></tr>
+        <tr><td>Passata</td><td>250 g</td><td>500 g</td><td>875 g</td></tr>
+      </table>
+      </div>
+      <p>Filling: ricotta, squeezed spinach, egg, parmesan, plenty of nutmeg, salt. Pipe into the tubes using a sandwich bag with the corner cut off. Sauce on the base of the dish, tubes on top, more sauce over — cover them completely or the ends go leathery. Parmesan, foil on, 180°C for 30 minutes, foil off for 10.</p>
+    </div>
+  </details>
+
+  <details class="recipe">
+    <summary>Sunday — Shakshuka</summary>
+    <div class="recipe-body">
+      <p class="ing">2 eggs · 200 g chopped tomatoes · ½ red pepper · ½ onion · 1 tbsp olive oil · 1 tsp cumin · 1 tsp sweet paprika · 30 g feta · parsley · bread</p>
+      <div class="scroll">
+      <table>
+        <tr><th></th><th>D</th><th>D+L</th><th>D2+L</th></tr>
+        <tr><td>Eggs</td><td>2</td><td>—</td><td>5</td></tr>
+        <tr><td>Tomatoes</td><td>½ tin</td><td>—</td><td>1¾ tins</td></tr>
+        <tr><td>Feta</td><td>30 g</td><td>—</td><td>100 g</td></tr>
+      </table>
+      </div>
+      <p>Onion and pepper softened well, spices, tomatoes, simmer 15 minutes until thick. Make wells, crack in the eggs, lid on, 6–8 minutes until the whites set and the yolks don't. Feta and parsley over.</p>
+      <p class="note">Shakshuka doesn't travel — eat it all fresh. Monday's lunch is the frozen lentil ragù from Week 1.</p>
+    </div>
+  </details>
+
+  <!-- ---------------- WEEK 3 ---------------- -->
+  <h3>Week 3</h3>
+
+  <div class="scroll">
+  <table class="week">
+    <tr><th>Day</th><th>Dinner</th><th>Lunch next day</th></tr>
+    <tr><td>Mon</td><td>Pasta alla norma</td><td>Pasta alla norma</td></tr>
+    <tr><td>Tue</td><td>Tarka dal with rice and spinach</td><td>Dal</td></tr>
+    <tr><td>Wed</td><td>Farro salad with feta and chickpeas <i>(make double)</i></td><td>Farro salad, cold</td></tr>
+    <tr><td>Thu</td><td>Black bean and sweet potato chilli</td><td>Chilli</td></tr>
+    <tr><td>Fri</td><td>Orecchiette with broccoli and chilli</td><td>—</td></tr>
+    <tr><td>Sat</td><td>Torta salata — leek, ricotta, egg</td><td>Torta salata</td></tr>
+    <tr><td>Sun</td><td>Polpette di lenticchie</td><td>Polpette</td></tr>
+  </table>
+  </div>
+
+  <details class="recipe">
+    <summary>Monday — Pasta alla norma</summary>
+    <div class="recipe-body">
+      <p class="ing">75 g rigatoni · 1 aubergine · 200 g passata · 1 tbsp olive oil · garlic · basil · 20 g ricotta salata or pecorino</p>
+      <div class="scroll">
+      <table>
+        <tr><th></th><th>D</th><th>D+L</th><th>D2+L</th></tr>
+        <tr><td>Pasta</td><td>75 g</td><td>150 g</td><td>260 g</td></tr>
+        <tr><td>Aubergine</td><td>1</td><td>2</td><td>3–4</td></tr>
+        <tr><td>Passata</td><td>200 g</td><td>400 g</td><td>700 g</td></tr>
+      </table>
+      </div>
+      <p>Cube the aubergine, toss in the oil, roast at 220°C for 25 minutes until deeply browned — this is the entire dish, so let it go further than feels comfortable. Tomato sauce with garlic and basil. Combine, and grate the ricotta salata over.</p>
+    </div>
+  </details>
+
+  <details class="recipe">
+    <summary>Tuesday — Tarka dal with rice and spinach</summary>
+    <div class="recipe-body">
+      <p class="ing">80 g red lentils · 60 g rice · 100 g spinach · turmeric · <b>tarka:</b> 1 tbsp oil or ghee, 1 tsp cumin seeds, ½ tsp mustard seeds, 2 sliced garlic cloves, dried chilli · yogurt, coriander, lemon</p>
+      <div class="scroll">
+      <table>
+        <tr><th></th><th>D</th><th>D+L</th><th>D2+L</th></tr>
+        <tr><td>Lentils</td><td>80 g</td><td>160 g</td><td>280 g</td></tr>
+        <tr><td>Rice (dry)</td><td>60 g</td><td>120 g</td><td>210 g</td></tr>
+        <tr><td>Tarka</td><td>1×</td><td>1½×</td><td>2×</td></tr>
+      </table>
+      </div>
+      <p>Lentils, turmeric, salt and three times their volume of water — simmer 20–25 minutes, whisking to break them down. Spinach wilted in at the end. Separately heat the oil with the cumin and mustard seeds until they crackle, garlic until just golden, chilli — then pour the whole sizzling lot over the dal. Lemon, yogurt, coriander.</p>
+      <p class="note">About 40p a portion.</p>
+    </div>
+  </details>
+
+  <details class="recipe">
+    <summary>Wednesday — Farro salad with feta, chickpeas and roasted peppers</summary>
+    <div class="recipe-body">
+      <p class="ing">70 g dry farro or pearl barley · 120 g drained chickpeas · 50 g feta · 1 roasted red pepper · 100 g cherry tomatoes · cucumber · red onion · 1 tbsp olive oil · lemon · mint and parsley</p>
+      <div class="scroll">
+      <table>
+        <tr><th></th><th>D</th><th>D+L</th><th>D2+L</th></tr>
+        <tr><td>Farro</td><td>70 g</td><td>140 g</td><td>245 g</td></tr>
+        <tr><td>Chickpeas</td><td>½ tin</td><td>1 tin</td><td>1¾ tins</td></tr>
+        <tr><td>Feta</td><td>50 g</td><td>100 g</td><td>175 g</td></tr>
+      </table>
+      </div>
+      <p>Farro simmered 25–30 minutes, drained, dressed while still warm with oil, lemon and salt so it absorbs. Everything else folded through cold. Herbs at the last minute.</p>
+      <p class="note">Make the double portion regardless — this improves overnight and needs no reheating, which makes it the best office lunch of the three weeks.</p>
+    </div>
+  </details>
+
+  <details class="recipe">
+    <summary>Thursday — Black bean and sweet potato chilli</summary>
+    <div class="recipe-body">
+      <p class="ing">200 g sweet potato, cubed · 150 g black beans · 100 g kidney beans · 200 g chopped tomatoes · ½ onion · 1 tbsp olive oil · 1 tsp cumin · 1 tsp smoked paprika · chipotle paste · 40 g rice · yogurt and coriander to serve</p>
+      <div class="scroll">
+      <table>
+        <tr><th></th><th>D</th><th>D+L</th><th>D2+L</th></tr>
+        <tr><td>Sweet potato</td><td>200 g</td><td>400 g</td><td>700 g</td></tr>
+        <tr><td>Black beans</td><td>½ tin</td><td>1 tin</td><td>1¾ tins</td></tr>
+        <tr><td>Kidney beans</td><td>¼ tin</td><td>½ tin</td><td>1 tin</td></tr>
+        <tr><td>Tomatoes</td><td>½ tin</td><td>1 tin</td><td>1¾ tins</td></tr>
+      </table>
+      </div>
+      <p>Onion, spices, chipotle. Sweet potato, tomatoes, beans, 200 ml water per portion. Simmer 30 minutes, lid off for the last 10 to thicken. Lime at the end.</p>
+      <p class="note">Freezes as well as it reheats — make extra if the pot allows.</p>
+    </div>
+  </details>
+
+  <details class="recipe">
+    <summary>Friday — Orecchiette with broccoli, chilli and ricotta salata</summary>
+    <div class="recipe-body">
+      <p class="ing">75 g orecchiette · 200 g broccoli or tenderstem · 1 tbsp olive oil · 2 garlic cloves · dried chilli · 100 g butter beans · 25 g ricotta salata · 15 g breadcrumbs toasted in a dry pan</p>
+      <div class="scroll">
+      <table>
+        <tr><th></th><th>D</th><th>D+L</th><th>D2+L</th></tr>
+        <tr><td>Pasta</td><td>75 g</td><td>150 g</td><td>260 g</td></tr>
+        <tr><td>Broccoli</td><td>200 g</td><td>400 g</td><td>700 g</td></tr>
+        <tr><td>Butter beans</td><td>⅓ tin</td><td>⅔ tin</td><td>1 tin</td></tr>
+      </table>
+      </div>
+      <p>Boil the broccoli in the pasta water until very soft, then cook the pasta in the same water. Meanwhile garlic and chilli in oil. Broccoli into the pan, crushed into a rough sauce, butter beans in. Pasta and a splash of the water, tossed hard. Breadcrumbs and cheese over — the crumbs are what make it feel finished.</p>
+    </div>
+  </details>
+
+  <details class="recipe">
+    <summary>Saturday — Torta salata with leek, ricotta and egg</summary>
+    <div class="recipe-body">
+      <p class="ing">Makes 4 slices — bake the whole thing and treat it as two dinners, or dinner plus two lunches.<br>250 g ricotta · 2 eggs · 2 large leeks · 40 g parmesan · 1 sheet shortcrust · 1 tbsp olive oil · nutmeg · thyme</p>
+      <p>Leeks sliced and softened in the oil with the lid on for 15 minutes until melting, with no colour. Cooled slightly, then mixed with the ricotta, eggs, parmesan, nutmeg and thyme. Into the lined tin, 190°C for 35–40 minutes until set and golden.</p>
+      <p class="note">One quarter per portion, with a large green salad alongside.</p>
+    </div>
+  </details>
+
+  <details class="recipe">
+    <summary>Sunday — Polpette di lenticchie in tomato sauce</summary>
+    <div class="recipe-body">
+      <p class="ing">80 g dry lentils, cooked · 30 g breadcrumbs · ½ egg · 15 g parmesan · garlic, parsley · 1 tsp oil for the tray · <b>sauce:</b> 250 g passata, garlic, basil, 1 tsp oil · bread to serve</p>
+      <div class="scroll">
+      <table>
+        <tr><th></th><th>D</th><th>D+L</th><th>D2+L</th></tr>
+        <tr><td>Lentils</td><td>80 g</td><td>160 g</td><td>280 g</td></tr>
+        <tr><td>Breadcrumbs</td><td>30 g</td><td>60 g</td><td>105 g</td></tr>
+        <tr><td>Egg</td><td>1 small</td><td>1</td><td>2</td></tr>
+        <tr><td>Passata</td><td>250 g</td><td>500 g</td><td>875 g</td></tr>
+      </table>
+      </div>
+      <p>Cook the lentils until soft and drain very well. Pulse half, leave half whole — the texture matters. Mix with breadcrumbs, egg, parmesan, garlic, parsley, salt. Roll into balls and <b>bake</b> at 200°C for 20 minutes rather than frying, turning once. Drop into the simmering sauce for 10 minutes.</p>
+      <p class="note">Better the next day, like all polpette.</p>
+    </div>
+  </details>
+
+</section>
+
+<!-- ============================ SNACKS ============================ -->
+<section class="wrap" id="snacks">
+  <h2>Snacks</h2>
+
+  <h3>Mid-morning</h3>
+  <ul>
+    <li>One piece of fresh fruit</li>
+    <li>100 g skyr</li>
+    <li>20 g almonds (about 15)</li>
+    <li>1 oatcake with 40 g cottage cheese</li>
+  </ul>
+
+  <h3>Afternoon</h3>
+  <ul>
+    <li>150 g Greek yogurt + 80 g berries + 10 g nuts</li>
+    <li>2 boiled eggs + a satsuma</li>
+    <li>80 g ricotta on 1 slice of toast with 1 tsp honey</li>
+    <li>100 g cottage cheese with cucumber, 1 tsp oil, black pepper</li>
+    <li>60 g hummus with unlimited carrot, fennel or pepper sticks</li>
+    <li>100 g edamame, salted</li>
+    <li>1 apple + 1 tbsp peanut butter</li>
+    <li>20 g nuts + 10 g dark chocolate</li>
+    <li>A protein shake, on busy days</li>
+  </ul>
+
+  <h3>Pre-dinner</h3>
+  <ul>
+    <li>Sparkling water with lemon, or a tea</li>
+    <li>8 olives</li>
+    <li>Fennel sticks</li>
+    <li>10 almonds</li>
+    <li>Cherry tomatoes with salt</li>
+  </ul>
+
+  <h3>After dinner</h3>
+  <ul>
+    <li>15 g dark chocolate (2–3 squares)</li>
+    <li>100 g yogurt with 1 tsp honey</li>
+    <li>Fresh fruit</li>
+    <li>2 dates with a walnut pushed inside</li>
+    <li>An espresso and one biscotto</li>
+  </ul>
+</section>
+
+<!-- ============================ TRAINING ============================ -->
+<section class="wrap" id="training">
+  <h2>Training</h2>
+
+  <p>Three sessions a week, 45–55 minutes each including warm-up and stretching. Full-body, machines throughout.</p>
+
+  <div class="box">
+    <h4>Every session</h4>
+    <ul>
+      <li>Warm-up, 5 minutes — stair machine or brisk incline walk</li>
+      <li>The lifts — as listed below</li>
+      <li>Optional finisher, 10 minutes — stair machine, if time allows</li>
+      <li>Stretch, 5 minutes</li>
+    </ul>
+  </div>
+
+  <h3>Day A</h3>
+  <ul class="check">
+    <li><input type="checkbox"><span>Leg press — 3 × 10</span></li>
+    <li><input type="checkbox"><span>Chest press machine — 3 × 10</span></li>
+    <li><input type="checkbox"><span>Seated cable row — 3 × 12</span></li>
+    <li><input type="checkbox"><span>Lateral raise (light dumbbells) — 3 × 12</span></li>
+    <li><input type="checkbox"><span>Dead bug — 3 × 10 each side</span></li>
+  </ul>
+
+  <h3>Day B</h3>
+  <ul class="check">
+    <li><input type="checkbox"><span>Lat pulldown — 3 × 10</span></li>
+    <li><input type="checkbox"><span>Romanian deadlift (dumbbells) — 3 × 10</span></li>
+    <li><input type="checkbox"><span>Chest-supported row or machine row — 3 × 12</span></li>
+    <li><input type="checkbox"><span>Face pulls (cable, rope attachment) — 3 × 15</span></li>
+    <li><input type="checkbox"><span>Plank — 3 × 30 seconds</span></li>
+  </ul>
+
+  <h3>Day C</h3>
+  <ul class="check">
+    <li><input type="checkbox"><span>Hip thrust or glute bridge machine — 3 × 10</span></li>
+    <li><input type="checkbox"><span>Shoulder press machine — 3 × 10</span></li>
+    <li><input type="checkbox"><span>Seated row — 3 × 12</span></li>
+    <li><input type="checkbox"><span>Leg curl — 3 × 12</span></li>
+    <li><input type="checkbox"><span>Reverse fly (machine or dumbbell) — 3 × 15</span></li>
+  </ul>
+
+  <h3>Picking the weight</h3>
+  <p>Pick a weight where the last two reps are hard but form holds. When all three sets can be completed at the top of the rep range, add the smallest available increment next time. Keep a note of exercise, weight, sets and reps on your phone.</p>
+
+  <h3>Away from the gym</h3>
+  <p>A long resistance loop band (about £10) lives permanently in the travel bag. Two 25-minute sessions across the weekend, plus a long walk each day.</p>
+  <ul class="check">
+    <li><input type="checkbox"><span>Band rows</span></li>
+    <li><input type="checkbox"><span>Band face pulls</span></li>
+    <li><input type="checkbox"><span>Band pull-aparts</span></li>
+    <li><input type="checkbox"><span>Goblet squats holding a loaded rucksack</span></li>
+    <li><input type="checkbox"><span>Glute bridges</span></li>
+    <li><input type="checkbox"><span>Push-ups against a kitchen counter</span></li>
+    <li><input type="checkbox"><span>Walking lunges</span></li>
+  </ul>
+</section>
+
+<!-- ============================ PREP ============================ -->
+<section class="wrap" id="prep">
+  <h2>Weekend prep</h2>
+  <p class="note">Ninety minutes. Everything else is a weeknight job of under an hour.</p>
+  <ul class="check">
+    <li><input type="checkbox"><span>Big-batch item for the week — ragù, minestrone, chilli or dal</span></li>
+    <li><input type="checkbox"><span>Tray of roasted vegetables for lunches</span></li>
+    <li><input type="checkbox"><span>Boil six eggs</span></li>
+    <li><input type="checkbox"><span>Three jars of overnight oats</span></li>
+    <li><input type="checkbox"><span>Portion yogurt, fruit and nuts into grab-sized containers</span></li>
+    <li><input type="checkbox"><span>Cook a batch of farro or rice</span></li>
+  </ul>
+</section>
+
+</main>
+
+<footer class="wrap">Not medical advice.</footer>
+
+</body>
+</html>
