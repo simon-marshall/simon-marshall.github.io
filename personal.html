@@ -90,6 +90,19 @@
     background:var(--ledge);
   }
 
+  /* ---------- embedded satellite display ---------- */
+  .panel{background:var(--inset);border:1px solid var(--seam);border-radius:3px;
+    padding:12px;margin:0 0 14px}
+  .screen{display:block;width:100%;height:auto;aspect-ratio:4/3;
+    image-rendering:pixelated;background:#08141A;border-radius:2px}
+  .legend{display:flex;flex-wrap:wrap;gap:16px;margin:0;
+    font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;
+    letter-spacing:.06em;text-transform:uppercase;color:var(--key)}
+  .legend span{display:inline-flex;align-items:center;gap:7px}
+  .legend i{width:9px;height:9px;border-radius:50%;display:inline-block}
+  .status{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;
+    letter-spacing:.06em;text-transform:uppercase;color:var(--key);margin:12px 0 0}
+
   /* ---------- project items ---------- */
   .item{padding:20px 0;border-bottom:1px solid var(--seam)}
   .item:last-child{border-bottom:0}
@@ -184,8 +197,23 @@
 <main>
 
 <section class="wrap">
-  <h2>About</h2>
-  <p>Somewhere to host my personal projects.</p>
+  <p>Below is a simple visualisation of the objects passing over London (which will
+    slowly pick up orbital inaccuracies as I forget to keep it updated).</p>
+
+  <div class="panel" id="panel">
+    <canvas class="screen" id="screen" width="320" height="240"
+            aria-label="Live map of satellites over southern England"></canvas>
+  </div>
+  <div class="legend">
+    <span><i style="background:#5CD0FA"></i>Everything else</span>
+    <span><i style="background:#A498F5"></i>Starlink</span>
+    <span><i style="background:#FFBE3C"></i>Higher orbits</span>
+    <span><i style="background:#FFB02E;border-radius:0"></i>London</span>
+  </div>
+  <p class="status" id="status">Loading element sets&hellip;</p>
+
+  <p style="margin-top:26px">Below are a wide range of my personal projects. They are
+    mostly there for me to access but you&rsquo;re welcome to enjoy them too.</p>
 </section>
 
 <section class="wrap">
@@ -254,6 +282,9 @@
 </main>
 
 <footer class="wrap">© 2026 Simon C. Marshall</footer>
+
+<script src="vendor/satellite.min.js"></script>
+<script src="satmap.js"></script>
 
 </body>
 </html>
