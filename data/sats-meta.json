@@ -1,0 +1,25 @@
+{
+  "generated_utc": "2026-09-20T16:14:05Z",
+  "source": "CelesTrak GP (groups: active, visual, starlink)",
+  "frame_width_km": 686.0,
+  "frame_min_lat": 49.2,
+  "site": {
+    "lat": 51.5074,
+    "lon": -0.1278
+  },
+  "epoch_oldest": "2026-08-24T07:03:18Z",
+  "epoch_newest": "2026-09-22T02:07:24Z",
+  "epoch_median": "2026-09-19T23:55:54Z",
+  "files": {
+    "sats-core.txt": {
+      "objects": 4473,
+      "bytes": 684113,
+      "gzipped": 254687
+    },
+    "sats-starlink.txt": {
+      "objects": 7076,
+      "bytes": 997716,
+      "gzipped": 343366
+    }
+  }
+}
