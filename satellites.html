@@ -7,6 +7,7 @@
 <meta name="description" content="A visualisation of the satellites passing over London, drawn at the resolution of a ten-pound display.">
 <meta property="og:title" content="Satellites Over Head">
 <meta property="og:description" content="A visualisation of the satellites passing over London, drawn for a cheap yellow display.">
+<meta property="og:image" content="photos/header2.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Archivo:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -25,32 +26,37 @@ a:hover{border-bottom-color:var(--ember)}
 :focus-visible{outline:2px solid var(--ember);outline-offset:3px}
 .wrap{max-width:var(--measure);margin:0 auto;padding:0 24px}
 section.wrap{padding-top:52px;padding-bottom:52px}
-footer.wrap{padding-top:36px;padding-bottom:60px;color:var(--dust);font-size:.88rem;
-  border-top:1px solid var(--seam)}
+footer.wrap{padding-top:36px;padding-bottom:60px;color:var(--dust);font-size:.88rem}
 
+/* hero ---------------------------------------------------------------- */
 header.hero{position:relative;min-height:min(42vh,340px);display:flex;align-items:flex-end;
-  background:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.07'/%3E%3C/svg%3E"),
-    radial-gradient(130% 90% at 62% -10%, rgba(232,134,42,.28) 0%, rgba(232,134,42,.07) 42%, transparent 74%),
-    radial-gradient(150% 120% at 50% 0%, transparent 30%, rgba(10,8,6,.55) 100%),
-    repeating-linear-gradient(174deg,
-      #2E2318 0px,#2E2318 3px,  #221A12 3px,#221A12 14px,
-      #191410 14px,#191410 16px, #271E15 16px,#271E15 34px,
-      #1C1710 34px,#1C1710 47px),
-    var(--ledge);
-}
+  background:var(--ledge) url('photos/header2.jpg') center 12% / cover no-repeat}
 header.hero::after{content:'';position:absolute;inset:0;
   background:linear-gradient(to bottom,
     rgba(23,19,14,.15) 0%, rgba(23,19,14,.50) 55%, var(--rock) 100%)}
 .hero-inner{position:relative;z-index:1;width:100%;padding-bottom:40px}
 h1{font-family:'Fraunces',Georgia,serif;font-weight:600;
-  font-size:clamp(2.6rem,7vw,4.1rem);line-height:1.02;margin:0 0 18px;letter-spacing:-.015em}
+  font-size:clamp(2.6rem,7vw,4.1rem);line-height:1.02;margin:0 0 16px;
+  letter-spacing:-.015em;text-wrap:balance}
 .standfirst{font-size:1.12rem;color:var(--sand);max-width:34em;margin:0;opacity:.92}
+nav{display:flex;justify-content:space-between;align-items:baseline;margin-top:30px;
+  font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;font-weight:500;
+  letter-spacing:.14em;text-transform:uppercase}
+nav a{color:var(--dust);border:0}
+nav a:hover{color:var(--ember)}
+nav [aria-current]{color:var(--sand);padding:5px 10px;margin:-5px -10px;
+  border:1px solid var(--seam);border-radius:2px;background:var(--ledge)}
 
+/* the panel ----------------------------------------------------------- */
 .panel{background:var(--inset);border:1px solid var(--seam);border-radius:3px;
   padding:14px;margin:0 0 16px}
 .screen{display:block;width:100%;height:auto;aspect-ratio:4/3;
   image-rendering:pixelated;background:#08141A;border-radius:2px}
+/* Fullscreen: black surround, panel scaled to fit, pixels kept square. */
+.panel:fullscreen{display:flex;align-items:center;justify-content:center;
+  background:#000;border:0;border-radius:0;padding:0;margin:0}
+.panel:fullscreen .screen{width:auto;height:100%;max-width:100%;max-height:100%;
+  border-radius:0}
 .controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 14px}
 button{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;
   letter-spacing:.08em;text-transform:uppercase;cursor:pointer;
@@ -58,6 +64,7 @@ button{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;
   border-radius:2px;padding:7px 12px;transition:color .18s,border-color .18s}
 button:hover{color:var(--sand);border-color:var(--key)}
 button[aria-pressed="true"]{background:var(--ember);border-color:var(--ember);color:var(--rock)}
+.spacer{flex:1 1 auto}
 .legend{display:flex;flex-wrap:wrap;gap:16px;margin:0;
   font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;
   letter-spacing:.06em;text-transform:uppercase;color:var(--key)}
@@ -66,6 +73,15 @@ button[aria-pressed="true"]{background:var(--ember);border-color:var(--ember);co
 .status{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;
   letter-spacing:.06em;text-transform:uppercase;color:var(--key);margin:14px 0 0}
 .note{color:var(--dust);font-size:.92rem;line-height:1.6;margin:18px 0 0;max-width:40em}
+.attrib{color:var(--key);font-size:.86rem;line-height:1.6;margin:22px 0 26px}
+.backlink{padding:0 0 30px;margin:0;
+  font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;
+  letter-spacing:.14em;text-transform:uppercase}
+
+/* ?bare=1 -- just the display, for a popped-out window or a wall screen */
+body.bare header.hero, body.bare .note, body.bare .attrib,
+body.bare .backlink, body.bare footer, body.bare #btn-pop{display:none}
+body.bare section.wrap{padding-top:16px;padding-bottom:16px}
 
 @media (max-width:560px){
   body{font-size:16px}
@@ -82,12 +98,16 @@ button[aria-pressed="true"]{background:var(--ember);border-color:var(--ember);co
     <h1>Satellites Over Head</h1>
     <p class="standfirst">A visualisation of the satellites passing over London. This is
       to be displayed on a &ldquo;cheap yellow display&rdquo; (&pound;10).</p>
+    <nav>
+      <a href="index.html">Work</a>
+      <a href="personal.html" aria-current="true">Personal</a>
+    </nav>
   </div>
 </header>
 
 <main>
 <section class="wrap">
-  <div class="panel">
+  <div class="panel" id="panel">
     <canvas class="screen" id="screen" width="320" height="240"
             aria-label="Live map of satellites over southern England"></canvas>
   </div>
@@ -95,6 +115,9 @@ button[aria-pressed="true"]{background:var(--ember);border-color:var(--ember);co
     <button id="btn-starlink" aria-pressed="true">Starlink</button>
     <button id="btn-zoom">686 km</button>
     <button id="btn-pause" aria-pressed="false">Pause</button>
+    <span class="spacer"></span>
+    <button id="btn-full">Fullscreen</button>
+    <button id="btn-pop">Pop out</button>
   </div>
   <div class="legend">
     <span><i style="background:#5CD0FA"></i>Everything else</span>
@@ -108,14 +131,14 @@ button[aria-pressed="true"]{background:var(--ember);border-color:var(--ember);co
     of date: SGP4 drifts by one to three kilometres a day, so at 2.14&nbsp;km per
     pixel the dots wander about half a pixel to one and a half per day &mdash;
     three to ten pixels after a week &mdash; until the snapshot is replaced.</p>
+  <p class="attrib">Orbital elements from CelesTrak, propagated in the browser with
+    SGP4 via satellite.js. Coastlines from Natural Earth, simplified to 1.5&nbsp;km.
+    Positions are where a satellite is, not whether it can be seen.</p>
+  <p class="backlink"><a href="personal.html">&larr; Personal projects</a></p>
 </section>
 </main>
 
-<footer class="wrap">
-  &copy; 2026 Simon C. Marshall &middot;
-  Orbital data <a href="https://celestrak.org/">CelesTrak</a> &middot;
-  Coastlines <a href="https://www.naturalearthdata.com/">Natural Earth</a>
-</footer>
+<footer class="wrap">&copy; 2026 Simon C. Marshall</footer>
 
 <script src="vendor/satellite.min.js"></script>
 <script>
@@ -424,6 +447,28 @@ document.getElementById("btn-zoom").addEventListener("click", (ev) => {
   ev.currentTarget.textContent = ZOOMS[zoomIx].toLocaleString() + " km";
   updateStatus();
 });
+
+// --- fullscreen and pop-out ----------------------------------------------
+const panel = document.getElementById("panel");
+const btnFull = document.getElementById("btn-full");
+
+btnFull.addEventListener("click", () => {
+  if (document.fullscreenElement) document.exitFullscreen();
+  else if (panel.requestFullscreen) panel.requestFullscreen().catch(() => {});
+});
+document.addEventListener("fullscreenchange", () => {
+  btnFull.textContent = document.fullscreenElement ? "Exit" : "Fullscreen";
+});
+if (!panel.requestFullscreen) btnFull.hidden = true;
+
+document.getElementById("btn-pop").addEventListener("click", () => {
+  // ?bare strips everything but the display, so the popped window is all map.
+  window.open(location.pathname + "?bare=1", "satmap",
+              "width=700,height=620,menubar=no,toolbar=no");
+});
+
+if (new URLSearchParams(location.search).has("bare"))
+  document.body.classList.add("bare");
 
 load();
 </script>
